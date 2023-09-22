@@ -6,6 +6,7 @@ function Header({children}) {
 
   return (
     <>
+    <header className="header">
     <div className="logo-structure">
         <h1 className="logo-h1">
           <span className="special-c">C</span>
@@ -15,8 +16,9 @@ function Header({children}) {
           </span>
           viVify
         </h1>
-        {children}
       </div>
+      {children}
+      </header>
     </>
   )
 }
