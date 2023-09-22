@@ -1,2 +1,2 @@
-# cvivify-react
-A CV building app | my first app in React
+# CVivify | React
+A CV-builder app | my first app in React
