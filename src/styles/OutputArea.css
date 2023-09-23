@@ -1,16 +1,18 @@
 .output-container{
   width: 100%;
   padding: 32px;
+  min-width: 520px;
   max-width: 1024px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
+  align-items: center;
   overflow: scroll;
 }
 
 .output-component{
-  margin: 0 auto;
-  min-width: 530px;
+  
+  min-width: 466px;
   max-width: 800px;
+  border: 1px solid lightgray;
 }

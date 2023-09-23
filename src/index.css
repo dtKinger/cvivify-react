@@ -22,12 +22,7 @@
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 100px;
-  min-height: 100vh;
-  background-color: rgb(35, 35, 35)
+  
 }
 
 #root {
@@ -35,7 +30,7 @@ body {
   flex-direction: row; /* Sidebar and Display, or Inputs and Outputs */
   grid-template-columns: repeat(10%, 10);
   grid-template-rows: auto;
-  border: 1px solid red;
+  
   width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
