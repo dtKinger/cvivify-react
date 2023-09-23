@@ -5,8 +5,8 @@ function Header({children}) {
 
   return (
     <>
-    <header className="header">
-    <div className="logo-structure output-component">
+    <header className="header output-component">
+    <div className="logo-structure">
         <h1 className="logo-h1">
           <span className="special-c">C</span>
           <br></br>
