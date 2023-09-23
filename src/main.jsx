@@ -14,9 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Sidebar>
       <SidebarSection title="Profile" extensible="false"/>
-      <sidebarSection title="Experience" extensible="true" />
-      <sidebarSection title="Education" extensible="true" />
-      <sidebarSection title="Other" extensible="true" />
+      <SidebarSection title="Experience" extensible="true" />
+      <SidebarSection title="Education" extensible="true" />
+      <SidebarSection title="Other" extensible="true" />
     </Sidebar>
 
     <OutputArea>
