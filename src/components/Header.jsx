@@ -1,13 +1,12 @@
 import reactLogo from '../assets/react.svg'
 import "../styles/Header.css"
-import '../styles/Counter.css'
 
 function Header({children}) {
 
   return (
     <>
     <header className="header">
-    <div className="logo-structure">
+    <div className="logo-structure output-component">
         <h1 className="logo-h1">
           <span className="special-c">C</span>
           <br></br>

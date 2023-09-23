@@ -1,18 +1,21 @@
 .icon{
-  padding: 5px;
+  box-shadow: 2px 2px 15px lightblue;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.icon:active{
+  scale: 0.9;
 }
 
 .icon__small{
-  width: 32px;
-  height: 32px;
+  width: 24px;
 }
 
 .icon__medium{
-  width: 52px;
-  height: 52px;
+  width: 36px;
 }
 
 .icon__large{
-  width: 128px;
-  height: 128px;
+  width: 60px;
 }

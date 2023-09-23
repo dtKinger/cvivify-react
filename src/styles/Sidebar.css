@@ -1,0 +1,8 @@
+.sidebar{
+  min-width: 350px;
+  min-height: 400px;
+  padding: 5px;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 5px rgba(255, 127, 80, 1);
+  overflow-y: scroll;
+}

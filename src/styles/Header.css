@@ -1,11 +1,14 @@
 .header{
-  min-width: 200px;
-  max-width: 100vw;
-  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px;
+  height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* border-bottom: 1px solid lightblue; */
+  box-shadow: 2px 2px 5px lightblue;
+  border-radius: 5px;
 }
 
 .logo-structure{
@@ -52,6 +55,8 @@
 .logo-h1{
   margin: 0;
   line-height: 0;
+  box-shadow: 2px 2px 5px lightblue;
+  border-radius: 10px;
 }
 
 .mini-reaction > img{
