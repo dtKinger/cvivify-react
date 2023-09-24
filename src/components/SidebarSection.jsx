@@ -16,7 +16,7 @@ function handleRemoveInput (e) {
 }
 
 function SidebarSection ({title, classes}) {
-
+  
   const [keyCounter, setKeyCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([<InputContainer key={keyCounter}/>]);
 
