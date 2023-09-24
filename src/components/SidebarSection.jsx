@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import '../styles/Sidebar.css'
 
-function InputContainer () {
+function InputContainer ({keyCounter}) {
 
 
   return (
-    <div className="inputs-container">
-    <button className="btn delete-btn" onClick={removeSection}>&times;</button>
-    <textarea className="textarea" key='0' placeholder="Your info here..."></textarea>
-  </div>
+    <div key={keyCounter} className="inputs-container">
+      <button className="btn delete-btn" onClick={removeSection}>&times;</button>
+      <textarea className="textarea" placeholder="Your info here..."></textarea>
+    </div>
   )
 }
 
@@ -18,10 +18,12 @@ function removeSection () {
 
 function SidebarSection ({title, classes}) {
 
-  const [inputContainerList, setInputContainerList] = useState([<InputContainer key="0"/>]);
+  const [keyCounter, setKeyCounter] = useState(0);
+  const [inputContainerList, setInputContainerList] = useState([<InputContainer key={keyCounter}/>]);
 
-  const handleAddBtnClick = (e) => {
-    setInputContainerList(inputContainerList.concat(<InputContainer key={inputContainerList.length} />));
+  const handleAddBtnClick = () => {
+    setKeyCounter(keyCounter + 1);
+    setInputContainerList(inputContainerList.concat(<InputContainer key={keyCounter + 1} />));
   };
 
   return (
