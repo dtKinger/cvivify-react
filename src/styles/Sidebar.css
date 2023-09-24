@@ -1,4 +1,6 @@
 .sidebar{
+  display: flex;
+  flex-direction: column;
   border-radius: 0px 10px 10px 0px;
   min-width: 350px;
   max-width: 400px;
@@ -7,6 +9,7 @@
   border: 1px solid gray;
   box-shadow: 2px 2px 5px rgba(255, 127, 80, 1);
   overflow-y: scroll;
+  gap: 10px;
 }
 
 .sidebar-section{
@@ -23,10 +26,11 @@
 }
 
 .inputs-container{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  align-items: center;
 }
 
 .textarea{
@@ -50,4 +54,17 @@
 .add-more{
   grid-row: 6 / 7;
   grid-column: 6 / 9;
+}
+
+.form-label{
+  font-size: 0.8em;
+  font-weight: 700;
+  grid-column: 1 / 5;
+  grid-row: 0 / 1;
+}
+
+#input-name{
+  grid-column: 5 / 9;
+  grid-row: 0 / 1;
+
 }

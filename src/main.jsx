@@ -14,7 +14,7 @@ console.log("Don't be afraid")
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Sidebar>
-      <SidebarProfile classes="sidebar-section profile"/>
+      <SidebarProfile title="Profile" classes="sidebar-section profile"/>
       <SidebarSection title="Experience" classes="sidebar-section" type="rte"/>
       <SidebarSection title="Education" classes="sidebar-section" type="rte"/>
       <SidebarSection title="Other" classes="sidebar-section" type="rte"/>
