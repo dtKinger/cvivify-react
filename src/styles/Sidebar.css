@@ -68,3 +68,7 @@
   grid-row: 0 / 1;
 
 }
+
+@media print {
+  .sidebar {display: none;}
+}
