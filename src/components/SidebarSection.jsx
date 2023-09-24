@@ -3,17 +3,16 @@ import '../styles/Sidebar.css'
 
 function InputContainer ({keyCounter}) {
 
-
   return (
     <div key={keyCounter} className="inputs-container">
-      <button className="btn delete-btn" onClick={removeSection}>&times;</button>
+      <button className="btn delete-btn" onClick={handleRemoveInput}>&times;</button>
       <textarea className="textarea" placeholder="Your info here..."></textarea>
     </div>
   )
 }
 
-function removeSection () {
-  console.log(`Queued for deletion`)
+function handleRemoveInput (e) {
+  e.target.closest('.inputs-container').remove();
 }
 
 function SidebarSection ({title, classes}) {
