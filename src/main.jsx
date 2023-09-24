@@ -13,10 +13,10 @@ console.log("Don't be afraid")
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Sidebar>
-      <SidebarSection title="Profile" extensible="false"/>
-      <SidebarSection title="Experience" extensible="true" />
-      <SidebarSection title="Education" extensible="true" />
-      <SidebarSection title="Other" extensible="true" />
+      <SidebarSection title="Profile" classes="sidebar-section" type="no-rte"/>
+      <SidebarSection title="Experience" classes="sidebar-section" type="rte"/>
+      <SidebarSection title="Education" classes="sidebar-section" type="rte"/>
+      <SidebarSection title="Other" classes="sidebar-section" type="rte"/>
     </Sidebar>
 
     <OutputArea>

@@ -7,3 +7,45 @@
   box-shadow: 2px 2px 5px rgba(255, 127, 80, 1);
   overflow-y: scroll;
 }
+
+.sidebar-section{
+  border: 1px solid black;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.title{
+  grid-column: 1 / 5;
+  grid-row: 1 / 1;
+}
+
+.inputs-container{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.textarea{
+  resize: none;
+  grid-row: 5 / 7;
+  grid-column: 1 / 9;
+}
+
+.btn{
+  padding: 8px 12px;
+  margin: 2px;
+  background-color: rgba(220,220,220)
+}
+
+.delete-btn{
+  color: red;
+  grid-row: 1 / 2;
+  grid-column: 7 / 8;
+}
+
+.add-more{
+  grid-row: 6 / 7;
+  grid-column: 6 / 9;
+}
