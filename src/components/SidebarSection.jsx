@@ -16,17 +16,6 @@ function removeSection () {
   console.log(`Queued for deletion`)
 }
 
-function additionalInfo (e) {
-  const thisSection = e.target.closest('.sidebar-section')
-  const addMoreBtn = thisSection.querySelector('.add-more')
-  
-  const newInfoArea = document.createElement('div')
-  newInfoArea.classList.add('inputs-container')
-  
-}
-
-
-
 function SidebarSection ({title, classes}) {
 
   const [inputContainerList, setInputContainerList] = useState([<InputContainer key="0"/>]);
