@@ -7,7 +7,7 @@ function SidebarProfile ({title, classes}) {
       <h2 className="title">{title}</h2>
 
       <div className="inputs-container">
-        <label className="form-label" htmlFor="name">Professional Name: </label>
+        <label className="form-label" htmlFor="input-name">Professional Name: </label>
         <input id="input-name" type="text" name="name"></input>
       </div>
     </section>

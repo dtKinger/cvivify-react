@@ -19,3 +19,14 @@
 .icon__large{
   width: 60px;
 }
+
+label{
+  color: midnightblue;
+}
+
+.icon-container{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}

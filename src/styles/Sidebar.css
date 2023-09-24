@@ -13,7 +13,8 @@
 }
 
 .sidebar-section{
-  border: 1px solid black;
+  border: 1px dashed black;
+  border-radius: 5px;
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -60,15 +61,26 @@
   font-size: 0.8em;
   font-weight: 700;
   grid-column: 1 / 5;
-  grid-row: 0 / 1;
+  grid-row: 1 / 2;
 }
 
 #input-name{
   grid-column: 5 / 9;
-  grid-row: 0 / 1;
+  grid-row: 1 / 2;
 
 }
 
 @media print {
   .sidebar {display: none;}
 }
+
+@page {
+  size: auto;
+  margin: 0mm;
+
+  /* margin box at bottom right showing page number */
+  @bottom-right {
+    content: "Page " counter(pageNumber);
+  }
+}
+

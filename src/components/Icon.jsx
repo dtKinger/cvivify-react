@@ -1,10 +1,16 @@
 import "../styles/Icons.css"
 
+function handlePrintClick () {
+  window.print();
+}
 
-function Icon ({classes, source, altText}) {
+function Icon ({classes, source, altText, text}) {
   
   return (
-    <img className={classes} src={source} alt={altText}></img>
+    <div class="icon-container" onClick={handlePrintClick}>
+      <label htmlFor={text}>{text}</label>
+      <img id={text} className={classes} src={source} alt={altText}></img>
+    </div>
   )
 }
 
