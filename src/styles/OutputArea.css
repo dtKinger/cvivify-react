@@ -2,7 +2,7 @@
   width: 100%;
   padding: 32px;
   min-width: 520px;
-  max-width: 1024px;
+  
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -11,8 +11,10 @@
 }
 
 .output-component{
-  
-  min-width: 466px;
-  max-width: 800px;
+  /* border-bottom: 1px solid lightblue; */
+  box-shadow: 2px 2px 5px lightblue;
+  border-radius: 5px;
+  width: clamp(466px, 100%, 1004px);
+  max-width: 900px;
   border: 1px solid lightgray;
 }

@@ -5,15 +5,23 @@
   min-width: 350px;
   max-width: 400px;
   max-height: 100vh;
-  padding: 32px 10px;
+  padding: 32px 16px;
   border: 1px solid gray;
   box-shadow: 2px 2px 5px rgba(255, 127, 80, 1);
   overflow-y: scroll;
-  gap: 10px;
+  gap: 20px;
+  /* superdesigner.co */ 
+  background: radial-gradient(transparent 79%, #232323 80%);
+        background-size: 1em 1em;
+        background-color: #ffffff;
+        opacity: 1;
 }
+
+
 
 .sidebar-section{
   border: 1px dashed black;
+  background-color: white;
   border-radius: 5px;
   padding: 5px;
   display: flex;

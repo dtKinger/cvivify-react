@@ -8,13 +8,13 @@ import Header from "./components/Header.jsx"
 import Icon from './components/Icon.jsx'
 import './index.css'
 import downloadPDF from "./assets/download-as-PDF-icon.svg"
+import OutputProfile from './components/OutputProfile.jsx'
 
 console.log("Don't be afraid")
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Sidebar>
-      
       <SidebarProfile title="Profile" classes="sidebar-section profile"/>
       <SidebarSection title="Experience" classes="sidebar-section" type="rte"/>
       <SidebarSection title="Education" classes="sidebar-section" type="rte"/>
@@ -25,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Header>
         <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
       </Header>
+      <OutputProfile />
     </OutputArea>
 
   </React.StrictMode>,

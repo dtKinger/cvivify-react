@@ -6,9 +6,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: 1px solid lightblue; */
-  box-shadow: 2px 2px 5px lightblue;
-  border-radius: 5px;
 }
 
 .logo-structure{
@@ -49,14 +46,17 @@
 
 .special-c {
   position: relative;
-  left: 10px;
+  left: 6px;
+  bottom: 8px;
 }
 
 .logo-h1{
   margin: 0;
-  line-height: 0;
+  line-height: 0.3;
   box-shadow: 2px 2px 5px lightblue;
   border-radius: 10px;
+  background-color: white;
+  
 }
 
 .mini-reaction > img{
