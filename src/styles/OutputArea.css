@@ -12,9 +12,31 @@
 
 .output-component{
   /* border-bottom: 1px solid lightblue; */
+  padding: 10px;
   box-shadow: 2px 2px 5px lightblue;
   border-radius: 5px;
   width: clamp(466px, 100%, 1004px);
   max-width: 900px;
   border: 1px solid lightgray;
+}
+
+
+
+.profile-header{
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-header__coords{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-header__mission{
+
 }
