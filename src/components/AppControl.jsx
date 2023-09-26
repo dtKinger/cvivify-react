@@ -17,12 +17,12 @@ export function AppControl () {
       [key]: value,
     }));
   };
-
+  
   const [resumeProfileData, setResumeProfileData] = useState({
-    professional_name: '',
-    email_address: '',
-    phone_number: '',
-    mission_statement: '',
+    professional_name: 'Michael Scott',
+    email_address: 'mike@dundermifflin.com',
+    phone_number: '+1 (234) 567-8910',
+    mission_statement: "Don't ever, for any reason, do anything to anyone for any reason ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you've been... ever, for any reason whatsoever...",
   });
 
   const [resumeExperienceData, setResumeExperienceData] = useState({
@@ -56,7 +56,7 @@ export function AppControl () {
           onChange={handleProfileChange} 
           title="Profile"
           classes="sidebar-section profile"
-          data={resumeProfileData}
+          data={resumeProfileData} // Pass it back into Sidebar, because it's a controlled component
         />
         <SidebarSection title="Experience" classes="sidebar-section" type="rte"/>
         <SidebarSection title="Education" classes="sidebar-section" type="rte"/>
@@ -66,7 +66,7 @@ export function AppControl () {
         <Header>
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
         </Header>
-        <OutputProfile />
+        <OutputProfile data={resumeProfileData} /> {/* Pass the data as a prop */}
       </OutputArea>
     </>
     )
