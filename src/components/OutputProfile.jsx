@@ -12,9 +12,9 @@ function OutputProfile({ data }) {
   return (
     <div className="profile-output output-component">
       <div className="profile-header">
+      <h2 className="professional-name">{professional_name}</h2>
         <div className="profile-header__coords">
           <span className="email-address">{email_address}</span>
-          <h2 className="professional-name">{professional_name}</h2>
           <span className="phone">{phone_number}</span>
         </div>
         <div className="profile-header__mission">
