@@ -4,10 +4,15 @@ function SidebarProfile ({title, classes, data, onChange}) {
 
   const handleChange = (key, value) => {
     console.log(value.length)
-    if (value.length < 30){
+    if (key == 'professional_name' && value.length < 30){
+      onChange(key, value);
+    } else if (key == 'email' && value.length < 30){
+      onChange(key, value);
+    } else if (key == 'phone_number' && value.length < 12){
+      onChange(key, value);
+    } else if (key == 'mission_statement' && value.length < 500){
       onChange(key, value);
     }
-    
   };
 
   return (
@@ -17,6 +22,8 @@ function SidebarProfile ({title, classes, data, onChange}) {
       <div className="inputs-container">
         <label className="form-label form-label__professional-name" htmlFor="input-name">Professional Name: </label>
         <input
+          min="2"
+          max="30"
           id="input-name"
           type="text"
           name="professional-name"
@@ -36,11 +43,22 @@ function SidebarProfile ({title, classes, data, onChange}) {
         />
         <label className="form-label form-label__phone" htmlFor="phone">Phone: </label>
         <input
+          min="2"
+          max="12"
           id="phone"
           type="text"
           name="phone"
           value={data.phone_number}
           onChange={(e) => handleChange("phone_number", e.target.value)}
+        />
+        <label className="form-label form-label__mission" htmlFor="mission">Mission: <span>&nbsp;&nbsp; {data.mission_statement.length}/ 500</span></label>
+        <textarea
+          rows="8"
+          id="mission"
+          type="text"
+          name="mission"
+          value={data.mission_statement}
+          onChange={(e) => handleChange("mission_statement", e.target.value)}
         />
       </div>
     </section>
