@@ -8,9 +8,9 @@ function SidebarProfile ({title, classes, data, onChange}) {
       onChange(key, value);
     } else if (key == 'email' && value.length < 30){
       onChange(key, value);
-    } else if (key == 'phone_number' && value.length < 12){
+    } else if (key == 'phone_number' && value.length <= 18){
       onChange(key, value);
-    } else if (key == 'mission_statement' && value.length < 500){
+    } else if (key == 'mission_statement' && value.length <= 500){
       onChange(key, value);
     }
   };
@@ -43,15 +43,15 @@ function SidebarProfile ({title, classes, data, onChange}) {
         />
         <label className="form-label form-label__phone" htmlFor="phone">Phone: </label>
         <input
-          min="2"
-          max="12"
+          min="9"
+          max="18"
           id="phone"
           type="text"
           name="phone"
           value={data.phone_number}
           onChange={(e) => handleChange("phone_number", e.target.value)}
         />
-        <label className="form-label form-label__mission" htmlFor="mission">Mission: <span>&nbsp;&nbsp; {data.mission_statement.length}/ 500</span></label>
+        <label className="form-label form-label__mission" htmlFor="mission">Mission: <span>&nbsp;&nbsp; {data.mission_statement.length}/ 500 limit</span></label>
         <textarea
           rows="8"
           id="mission"
