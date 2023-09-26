@@ -1,10 +1,11 @@
 import '../styles/Sidebar.css'
 
-export function handleInputChange (e) {
-  console.log(`The input changed`)
-}
+function SidebarProfile ({title, classes, data, onChange}) {
 
-function SidebarProfile ({title, classes}) {
+  
+  const handleChange = (key, value) => {
+    onChange(key, value);
+  };
 
   return (
     <section className={classes}>
@@ -12,7 +13,14 @@ function SidebarProfile ({title, classes}) {
 
       <div className="inputs-container">
         <label className="form-label" htmlFor="input-name">Professional Name: </label>
-        <input id="input-name" type="text" name="name" onChange={handleInputChange}></input>
+        <input
+          id="input-name"
+          type="text"
+          name="professional-name"
+          value={data.professional_name}
+          onChange={(e) => handleChange("professional_name", e.target.value)} // This controls my input
+          // using the helper function handleChange which takes any prop as a key, then sets value
+        />
       </div>
     </section>
   )

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
+import SidebarProfile from "./SidebarProfile.jsx";
 import SidebarSection from './SidebarSection.jsx'
-import SidebarProfile from './SidebarProfile.jsx'
 import OutputArea from './OutputArea.jsx'
 import Header from "./Header.jsx"
 import Icon from './Icon.jsx'
@@ -9,7 +9,14 @@ import '../index.css'
 import downloadPDF from "../assets/download-as-PDF-icon.svg"
 import OutputProfile from './OutputProfile.jsx'
 
-export function AppControl ({children}) {
+export function AppControl () {
+
+  const handleProfileChange = (key, value) => {
+    setResumeProfileData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
 
   const [resumeProfileData, setResumeProfileData] = useState({
     professional_name: '',
@@ -44,8 +51,13 @@ export function AppControl ({children}) {
 
   return(
     <>
-    <Sidebar>
-        <SidebarProfile title="Profile" classes="sidebar-section profile"/>
+      <Sidebar>
+        <SidebarProfile
+          onChange={handleProfileChange} 
+          title="Profile"
+          classes="sidebar-section profile"
+          data={resumeProfileData}
+        />
         <SidebarSection title="Experience" classes="sidebar-section" type="rte"/>
         <SidebarSection title="Education" classes="sidebar-section" type="rte"/>
         <SidebarSection title="Other" classes="sidebar-section" type="rte"/>
