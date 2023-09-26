@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import SidebarProfile from "./SidebarProfile.jsx";
 import SidebarSection from './SidebarSection.jsx'
 import OutputArea from './OutputArea.jsx'
+import OutputExperience from "./OutputExperience";
 import Header from "./Header.jsx"
 import Icon from './Icon.jsx'
 import '../index.css'
@@ -67,6 +68,7 @@ export function AppControl () {
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
         </Header>
         <OutputProfile data={resumeProfileData} /> {/* Pass the data as a prop */}
+        <OutputExperience data={resumeExperienceData} />
       </OutputArea>
     </>
     )

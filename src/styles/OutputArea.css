@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .output-component{
@@ -15,8 +15,8 @@
   padding: 10px;
   box-shadow: 2px 2px 5px lightblue;
   border-radius: 5px;
-  width: clamp(466px, 100%, 1004px);
-  max-width: 900px;
+  width: clamp(466px, 100%, 816px); /* 816px is 8.5 inches @ 96dpi */ 
+  max-width: 816px;
   border: 1px solid lightgray;
 }
 
@@ -33,8 +33,4 @@
   gap: 10px;
   justify-content: space-between;
   align-items: center;
-}
-
-.profile-header__mission{
-
 }
