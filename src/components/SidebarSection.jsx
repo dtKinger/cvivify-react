@@ -5,8 +5,8 @@ function InputContainer ({keyCounter}) {
 
   return (
     <div key={keyCounter} className="inputs-container">
-      <button className="btn delete-btn" onClick={handleRemoveInput}>&times;</button>
-      <textarea className="textarea" placeholder="Your info here..."></textarea>
+      <button className="btn delete-btn" onClick={handleRemoveInput}>Remove Section</button>
+      <textarea rows="10" className="textarea" placeholder="Your info here..."></textarea>
     </div>
   )
 }
