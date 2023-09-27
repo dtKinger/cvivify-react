@@ -1,55 +1,90 @@
-import { useState } from 'react'
-import '../styles/Sidebar.css'
+import React, { useState } from 'react';
+import '../styles/Sidebar.css';
 
-function InputContainer (keyCounter, otherCounter, title) {
-
-  console.log(otherCounter)
-  let section ;
-  let jobId = `job-title-${otherCounter}`
-  let startId = `start-date-${otherCounter}`
-  let endId = `end-date-${otherCounter}`
+function InputContainer({ otherCounter, section }) {
+  // Generate unique IDs based on otherCounter
+  console.log(section)
+  console.log({section})
+  let jobId = `${section}-job-title-${otherCounter}`;
+  let startId = `${section}-start-date-${otherCounter}`;
+  let endId = `${section}-end-date-${otherCounter}`;
+  let textareaId = `${section}-text-area-${otherCounter}` 
 
   return (
-    <div key={keyCounter} className="inputs-container">
-      <button className="btn delete-btn" onClick={handleRemoveInput}>Remove</button>
-      <label className="form-label form-label__job-title" htmlFor="job-title">Your Role: </label>
-      <input className="form-input form-input__job-title" id="job-title" name="job-title" type="text"></input>
-      <label className="form-label form-label__start-date" htmlFor="start-date">From:</label>
-      <input className="form-input form-input__start-date" id="start-date" name="start-date" type="date" />
-      <label className="form-label form-label__end-date" htmlFor="end-date">To:</label>
-      <input className="form-input form-input__end-date" id="end-date" name="end-date" type="date" />
-      <label className="form-label form-label__textarea" htmlFor="textarea">Describe your role:</label>
-      <textarea id="textarea" rows="10" className="textarea" placeholder="Your info here..."></textarea>
+    <div className="inputs-container">
+      <button className="btn delete-btn" onClick={handleRemoveInput}>
+        Remove
+      </button>
+      <label className="form-label form-label__job-title" htmlFor={jobId}>
+        Your Role: 
+      </label>
+      <input
+        className="form-input form-input__job-title"
+        id={jobId}
+        name={jobId}
+        type="text"
+      />
+      <label className="form-label form-label__start-date" htmlFor={startId}>
+        From:
+      </label>
+      <input
+        className="form-input form-input__start-date"
+        id={startId}
+        name={startId}
+        type="date"
+      />
+      <label className="form-label form-label__end-date" htmlFor={endId}>
+        To:
+      </label>
+      <input
+        className="form-input form-input__end-date"
+        id={endId}
+        name={endId}
+        type="date"
+      />
+      <label className="form-label form-label__textarea" htmlFor={textareaId}>
+        Describe your role:
+      </label>
+      <textarea
+        id={textareaId}
+        rows="10"
+        className="textarea"
+        placeholder="Your info here..."
+      ></textarea>
     </div>
-  )
+  );
 }
 
-function handleRemoveInput (e) {
+function handleRemoveInput(e) {
   e.target.closest('.inputs-container').remove();
 }
 
-function SidebarSection ({title, classes}) {
-  
+function SidebarSection({ title, classes }) {
   const [keyCounter, setKeyCounter] = useState(0);
   const [otherCounter, setOtherCounter] = useState(0);
-  const [inputContainerList, setInputContainerList] = useState([<InputContainer key={keyCounter}/>]);
+  const [inputContainerList, setInputContainerList] = useState([
+    <InputContainer key={keyCounter} otherCounter={otherCounter} section={title} />,
+  ]);
 
   const handleAddBtnClick = () => {
+    const newOtherCounter = otherCounter + 1;
     setKeyCounter(keyCounter + 1);
-    setOtherCounter(otherCounter + 1);
-    setInputContainerList(inputContainerList.concat(<InputContainer key={keyCounter + 1} />));
-    
-    return otherCounter;
+    setOtherCounter(newOtherCounter);
+    setInputContainerList((prevList) => [
+      ...prevList,
+      <InputContainer key={keyCounter + 1} otherCounter={newOtherCounter} section={title}/>,
+    ]);
   };
 
   return (
-    otherCounter,
     <section className={classes}>
       <h2 className="title">{title}</h2>
       {inputContainerList}
-      <button className="btn add-more" onClick={handleAddBtnClick}>Add +</button>
+      <button className="btn add-more" onClick={handleAddBtnClick}>
+        Add +
+      </button>
     </section>
-  )
+  );
 }
 
 export default SidebarSection;
