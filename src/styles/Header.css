@@ -55,6 +55,7 @@
   box-shadow: 2px 2px 5px lightblue;
   border-radius: 10px;
   background-color: white;
+  text-shadow: 1px 1px 1px lightblue, 0px -2px 0px white;
   
 }
 
