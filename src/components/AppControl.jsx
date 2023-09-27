@@ -27,11 +27,11 @@ export function AppControl () {
   });
 
   const [resumeExperienceData, setResumeExperienceData] = useState({
-    company_name: '',
-    job_title: '',
-    starting_date: '',
-    worked_until: '',
-    job_description: ''
+    company_name: 'Dunder Mifflin',
+    job_title: 'Regional Manager',
+    starting_date: '2004-03-24',
+    worked_until: '2013-05-16',
+    job_description: 'Somehow I managed.'
   });
 
   const [resumeEducationData, setResumeEducationData] = useState({

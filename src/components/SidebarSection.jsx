@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import '../styles/Sidebar.css';
 
 function InputContainer({ otherCounter, section }) {
-  // Generate unique IDs based on otherCounter
-  console.log(section)
-  console.log({section})
+  // Generate unique IDs based on otherCounter and section title
+  // This is not for React's keys, but for html form IDs to avoid conflicts.
   let jobId = `${section}-job-title-${otherCounter}`;
   let startId = `${section}-start-date-${otherCounter}`;
   let endId = `${section}-end-date-${otherCounter}`;
@@ -59,7 +58,7 @@ function handleRemoveInput(e) {
   e.target.closest('.inputs-container').remove();
 }
 
-function SidebarSection({ title, classes }) {
+function SidebarSection({ title, classes, data }) {
   const [keyCounter, setKeyCounter] = useState(0);
   const [otherCounter, setOtherCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([
