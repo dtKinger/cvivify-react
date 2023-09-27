@@ -5,50 +5,50 @@ function OutputArea ({children}) {
     <>
     <div className="output-container">
     <div className="scale-image">
-        <div class='ruler'>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+        <div className='ruler'>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
-            <div class='tqi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
+            <div className='tqi'></div>
           </div>
-          <div class='in'>
-            <div class='qi'></div>
-            <div class='hi'></div>
+          <div className='in'>
+            <div className='qi'></div>
+            <div className='hi'></div>
           </div>
         </div>
       </div>
