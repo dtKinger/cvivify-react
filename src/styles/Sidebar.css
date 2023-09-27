@@ -47,6 +47,40 @@ input{
   align-items: center;
 }
 
+.form-input{
+  font-size: 12px;
+}
+
+.form-label__job-title{
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
+.form-input__job-title{
+  grid-column: 4 / 9;
+  grid-row: 2 / 3;
+}
+.form-label__start-date{
+  grid-column: 1 / 2;
+  grid-row: 3;
+}
+.form-input__start-date{
+  grid-column: 2 / 5;
+  grid-row: 3;
+}
+.form-label__end-date{
+  grid-column: 5 /9;
+  grid-row: 3;
+}
+.form-input__end-date{
+  grid-column: 6 / 9;
+  grid-row: 3;
+}
+
+.form-label__textarea{
+  grid-column: 1 / 5;
+  grid-row: 4 / 5;
+}
+
 /* PROFILE STUFF */ 
 .form-label{
   font-size: 0.8em;
@@ -105,7 +139,7 @@ input{
 
 .delete-btn{
   color: red;
-  grid-column: 5 / 9;
+  grid-column: 6 / 9;
   grid-row: 1 / 2;
 }
 
