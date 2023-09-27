@@ -2,12 +2,15 @@
   width: 100%;
   padding: 32px;
   min-width: 520px;
-  
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   overflow: auto;
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, rgba(230,230,230,1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(230,230,230,1) 1px, transparent 1px);
 }
 
 .output-component{
@@ -18,10 +21,10 @@
   width: clamp(466px, 100%, 816px); /* 816px is 8.5 inches @ 96dpi */ 
   max-width: 816px;
   border: 1px solid lightgray;
+  background-color: white;
 }
 
 .profile-header{
-  
   display: flex;
   flex-direction: column;
   gap: 20px;
