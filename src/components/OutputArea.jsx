@@ -44,7 +44,7 @@ function OutputArea ({children}) {
           <div class='in'>
             <div class='qi'></div>
             <div class='hi'></div>
-            <div class='qi'></div>
+            <div class='tqi'></div>
           </div>
           <div class='in'>
             <div class='qi'></div>
