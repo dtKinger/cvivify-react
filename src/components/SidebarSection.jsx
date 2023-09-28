@@ -5,7 +5,21 @@ function SidebarSection({ title, classes, data, onChange }) {
 
   const InputContainer = ({ otherCounter, section, data }) => {
   
-    
+    const [localData, setLocalData] = useState({
+      job_title: '',
+      starting_date: '',
+      worked_until: '',
+      job_description: '',
+    });
+  
+    const handleInputChange = (key, value) => {
+      setLocalData((prevData) => ({
+        ...prevData,
+        [key]: value,
+      }));
+      onChange(key, value); // Call the parent onChange to update AppControl state
+    };
+
     const handleRemoveInput = (e) => {
       e.target.closest('.inputs-container').remove();
     }
@@ -30,8 +44,8 @@ function SidebarSection({ title, classes, data, onChange }) {
           id={jobId}
           name={jobId}
           type="text"
-          value={data.job_title}
-          onChange={(e) => onChange("job_title", e.target.value)} // This controls my input
+          value={localData.job_title}
+          onChange={(e) => handleInputChange("job_title", e.target.value)} // This controls my input
           // using the helper function handleChange which takes any prop as a key, then sets value
         />
         <label className="form-label form-label__start-date" htmlFor={startId}>
