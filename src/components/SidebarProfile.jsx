@@ -3,7 +3,6 @@ import '../styles/Sidebar.css'
 function SidebarProfile ({title, classes, data, onChange}) {
 
   const handleChange = (key, value) => {
-    console.log(value.length)
     if (key == 'professional_name' && value.length < 30){
       onChange(key, value);
     } else if (key == 'email' && value.length < 30){
@@ -27,9 +26,9 @@ function SidebarProfile ({title, classes, data, onChange}) {
           id="input-name"
           type="text"
           name="professional-name"
-          value={data.professional_name}
           minrange="2"
           maxrange="30"
+          value={data.professional_name}
           onChange={(e) => handleChange("professional_name", e.target.value)} // This controls my input
           // using the helper function handleChange which takes any prop as a key, then sets value
         />

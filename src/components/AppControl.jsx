@@ -19,6 +19,13 @@ export function AppControl () {
     }));
   };
   
+  const handleExperienceChange = (key, value) => {
+    setResumeExperienceData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
+
   const [resumeProfileData, setResumeProfileData] = useState({
     professional_name: 'Michael Scott',
     email_address: 'mike@dundermifflin.com',
@@ -59,9 +66,14 @@ export function AppControl () {
           classes="sidebar-section profile"
           data={resumeProfileData} // Pass it back into Sidebar, because it's a controlled component
         />
-        <SidebarSection title="Experience" classes="sidebar-section" type="rte"/>
-        <SidebarSection title="Education" classes="sidebar-section" type="rte"/>
-        <SidebarSection title="Other" classes="sidebar-section" type="rte"/>
+        <SidebarSection
+          onChange={handleExperienceChange}
+          title="Experience"
+          classes="sidebar-section"
+          data={resumeExperienceData}
+        />
+        <SidebarSection data={resumeEducationData} title="Education" classes="sidebar-section"/>
+        <SidebarSection data={resumeOtherData} title="Other" classes="sidebar-section"/>
       </Sidebar>
       <OutputArea>
         <Header>
@@ -69,6 +81,7 @@ export function AppControl () {
         </Header>
         <OutputProfile data={resumeProfileData} /> {/* Pass the data as a prop */}
         <OutputExperience data={resumeExperienceData} />
+
       </OutputArea>
     </>
     )

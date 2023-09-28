@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/Sidebar.css';
 
-function InputContainer({ otherCounter, section }) {
+function InputContainer({ otherCounter, section, data, onChange }) {
+  
+  const handleRemoveInput = (e) => {
+    e.target.closest('.inputs-container').remove();
+  }
+
   // Generate unique IDs based on otherCounter and section title
   // This is not for React's keys, but for html form IDs to avoid conflicts.
   let jobId = `${section}-job-title-${otherCounter}`;
@@ -22,6 +27,9 @@ function InputContainer({ otherCounter, section }) {
         id={jobId}
         name={jobId}
         type="text"
+        value={data.job_title}
+        onChange={(e) => onChange("job_title", e.target.value)} // This controls my input
+        // using the helper function handleChange which takes any prop as a key, then sets value
       />
       <label className="form-label form-label__start-date" htmlFor={startId}>
         From:
@@ -31,6 +39,8 @@ function InputContainer({ otherCounter, section }) {
         id={startId}
         name={startId}
         type="date"
+        value={data.starting_date}
+        onChange={(e) => handleChange("starting_date", e.target.value)}
       />
       <label className="form-label form-label__end-date" htmlFor={endId}>
         To:
@@ -40,6 +50,8 @@ function InputContainer({ otherCounter, section }) {
         id={endId}
         name={endId}
         type="date"
+        value={data.worked_until}
+        onChange={(e) => handleChange("worked_until", e.target.value)}
       />
       <label className="form-label form-label__textarea" htmlFor={textareaId}>
         Describe your role:
@@ -48,21 +60,30 @@ function InputContainer({ otherCounter, section }) {
         id={textareaId}
         rows="10"
         className="textarea"
-        placeholder="Your info here..."
+        value={data.job_description}
+        onChange={(e) => handleChange("job_description", e.target.value)}
       ></textarea>
     </div>
   );
 }
 
-function handleRemoveInput(e) {
-  e.target.closest('.inputs-container').remove();
-}
+function SidebarSection({ title, classes, data, onChange }) {
 
-function SidebarSection({ title, classes, data }) {
+  const handleChange = (key, value) => {
+    onChange(key, value);
+    console.log(`Hello Darkness`)
+  };
+
   const [keyCounter, setKeyCounter] = useState(0);
   const [otherCounter, setOtherCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([
-    <InputContainer key={keyCounter} otherCounter={otherCounter} section={title} />,
+    <InputContainer
+    key={keyCounter}
+    otherCounter={otherCounter}
+    section={title}
+    data={data}
+    onChange={onChange}
+    />,
   ]);
 
   const handleAddBtnClick = () => {
@@ -71,7 +92,13 @@ function SidebarSection({ title, classes, data }) {
     setOtherCounter(newOtherCounter);
     setInputContainerList((prevList) => [
       ...prevList,
-      <InputContainer key={keyCounter + 1} otherCounter={newOtherCounter} section={title}/>,
+      <InputContainer
+      key={keyCounter + 1}
+      otherCounter={newOtherCounter}
+      section={title}
+      data // Leave this blank so additional sections don't load Michael Scott.
+      onChange={onChange}
+      />,
     ]);
   };
 
