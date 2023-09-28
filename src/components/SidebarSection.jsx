@@ -56,8 +56,8 @@ function SidebarSection({ title, classes, data, onChange }) {
           id={startId}
           name={startId}
           type="date"
-          value={data.starting_date}
-          onChange={(e) => handleChange("starting_date", e.target.value)}
+          value={localData.starting_date}
+          onChange={(e) => handleInputChange("starting_date", e.target.value)}
         />
         <label className="form-label form-label__end-date" htmlFor={endId}>
           To:
@@ -67,8 +67,8 @@ function SidebarSection({ title, classes, data, onChange }) {
           id={endId}
           name={endId}
           type="date"
-          value={data.worked_until}
-          onChange={(e) => handleChange("worked_until", e.target.value)}
+          value={localData.worked_until}
+          onChange={(e) => handleInputChange("worked_until", e.target.value)}
         />
         <label className="form-label form-label__textarea" htmlFor={textareaId}>
           Describe your role:
@@ -77,8 +77,8 @@ function SidebarSection({ title, classes, data, onChange }) {
           id={textareaId}
           rows="10"
           className="textarea"
-          value={data.job_description}
-          onChange={(e) => handleChange("job_description", e.target.value)}
+          value={localData.job_description}
+          onChange={(e) => handleInputChange("job_description", e.target.value)}
         ></textarea>
       </div>
     );
