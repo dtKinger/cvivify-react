@@ -34,17 +34,24 @@ input{
 }
 
 .title{
+  padding: 4px 0px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
   grid-column: 1 / 5;
   grid-row: 1 / 1;
 }
 
 .inputs-container{
+  padding: 4px;
   /* border: 1px solid black; */
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
   align-items: center;
+  border: 3px solid #00a9ff;
+  border-radius: 5px;
 }
 
 .form-input{
@@ -141,10 +148,14 @@ input{
   color: red;
   grid-column: 6 / 9;
   grid-row: 1 / 2;
+  font-size: 14px;
+  padding: 4px 0;
 }
 
-.btn .add-more{
-
+.btn.add-more{
+  font-size: 18px;
+  background-color: black;
+  color: white;
 }
 
 
