@@ -3,24 +3,8 @@ import '../styles/OutputArea.css'
 
 
 function OutputExperience ({data}) {
-  const OutputExperienceNode = (data) => {
-    return(
-    <div className="output-component">
-        <h2 className="company-name">{company_name}</h2>
-        <h3 className="job-title">{job_title}</h3>
-          <div className="job-dates">
-            <span className="start-date">{starting_date} -</span>
-            <span className="end-date"> {worked_until}</span>
-          </div>
-          <div className="profile-header__mission">
-            <p className="job-description">{job_description}</p>
-          </div>
-      </div>
-    )
-  }
 
   // Use the data received from props, with defaults
-  console.log(data)
   const {
     company_name,
     job_title,
@@ -29,25 +13,20 @@ function OutputExperience ({data}) {
     job_description,
   } = data;
 
-  const [OutputExperienceList, setOutputExperienceList] = useState([
-    <OutputExperienceNode key="0"/>
-  ])
-
-  const updateExperienceList = (e) => {
-    setOutputExperienceList((prevList) => [
-      ...prevList,
-      <OutputExperienceNode />
-    ]);
-  }
   
-
-
-  return (
-    <>
-    {OutputExperienceList}
-    </>
-    
-  );
+  return(
+    <div className="output-component">
+      <h2 className="company-name">{company_name}</h2>
+      <h3 className="job-title">{job_title}</h3>
+        <div className="job-dates">
+          <span className="start-date">{starting_date} -</span>
+          <span className="end-date"> {worked_until}</span>
+        </div>
+        <div className="profile-header__mission">
+          <p className="job-description">{job_description}</p>
+        </div>
+    </div>
+    )
 }
 
 export default OutputExperience;
