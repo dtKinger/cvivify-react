@@ -2,21 +2,18 @@ import React, { useState } from 'react';
 import Experiences from '../data/experiences';
 import '../styles/Sidebar.css';
 
-function SidebarSection({ title, classes, data, onChange, onAddNode }) {
+function SidebarSection({ title, classes, data, onChange, onAddNode, onRemoveNode }) {
 
   const InputContainer = ({ section, idCounter, sharedId }) => {
   
     const handleInputChange = (sharedId, key, value) => {
-      setExperiences[sharedId]((prevData) => ({
-        ...prevData,
-        [key]: value
-      }));
       onChange(sharedId, key, value); // Call the parent onChange to update AppControl state
     };
 
-    const handleRemoveInput = (e) => {
-      e.target.closest('.inputs-container').remove();
-    }
+    const handleRemoveInput = () => {
+      // Remove this node by calling the parent's removal function
+      onRemoveNode(sharedId);
+    };
   
     let jobId = `${section}-job-title-${idCounter}`;
     let companyId = `${section}-company-${idCounter}`;

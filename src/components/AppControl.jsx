@@ -15,15 +15,18 @@ export function AppControl () {
 
   const handleAddExperienceNode = (zData) => {
     // Add a new experience node to the list
-    setExperienceNodes([...Experiences, zData]);
+    setExperiences((prevExperiences) => ({
+      ...prevExperiences,
+      [zData.sharedId]: zData,
+    }));
   };
 
   const uniqueKey = () => crypto.randomUUID(); // Generates a uuid;
 
   const addSection = () => {
-    sharedId = uniqueKey();
-    setExperienceNodes((prevState) => ({
-      ...prevState,
+    const sharedId = uniqueKey();
+    setExperiences((prevExperiences) => ({
+      ...prevExperiences,
       [sharedId]: {
         job_title: '',  
         starting_date: '',
@@ -50,6 +53,11 @@ export function AppControl () {
     }));
   };
 
+  const handleRemoveExperienceNode = (sharedId) => {
+    const { [sharedId]: removedNode, ...restExperiences } = experiences;
+    setExperiences(restExperiences);
+  };
+
   const [resumeProfileData, setResumeProfileData] = useState({
     professional_name: 'Michael Scott',
     email_address: 'mike@dundermifflin.com',
@@ -57,8 +65,8 @@ export function AppControl () {
     mission_statement: "Don't ever, for any reason, do anything to anyone for any reason ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you've been... ever, for any reason whatsoever...",
   });
 
-  const [experienceNodes, setExperienceNodes] = useState(Experiences); // State for storing experience nodes
-
+  const [experiences, setExperiences] = useState(Experiences); // State for storing experience nodes
+  const sharedId = uniqueKey();
   return(
     <>
       <Sidebar>
@@ -69,10 +77,9 @@ export function AppControl () {
           data={resumeProfileData} // Pass it back into Sidebar, because it's a controlled component
         />
         <SidebarSection
-          sharedId={uniqueKey} // Pass the unique key as a prop
-          data={experienceNodes[uniqueKey]} // Use the data corresponding to the unique key
           onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes
+          onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
           title="Experience"
           classes="sidebar-section"
         />
@@ -83,7 +90,7 @@ export function AppControl () {
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
         </Header>
         <OutputProfile data={resumeProfileData} />
-        <OutputExperience experiencesArray={experienceNodes}/> 
+        <OutputExperience experiencesArray={Object.values(experiences)}/> 
       </OutputArea>
     </>
     )
