@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Sidebar.css';
 
-function SidebarSection({ title, classes, data, onChange }) {
+function SidebarSection({ title, classes, data, onChange, onAddNode }) {
 
   const InputContainer = ({ section, keyCounter }) => {
   
@@ -93,7 +93,18 @@ function SidebarSection({ title, classes, data, onChange }) {
   ]);
 
   const handleAddBtnClick = () => {
-    setKeyCounter((prev) => prev + 1); // This doesn't seem to finish executing before the InputContainer is generated below
+    setKeyCounter((prev) => prev + 1);
+
+    // Create a new node data object
+    const newNodeData = {
+      job_title: '',
+      starting_date: '',
+      worked_until: '',
+      job_description: '',
+    };
+
+    // Call the onAddNode function to add the new node
+    onAddNode(newNodeData);
 
     setInputContainerList((prevList) => [
       ...prevList,

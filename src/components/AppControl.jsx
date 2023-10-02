@@ -12,6 +12,7 @@ import OutputProfile from './OutputProfile.jsx'
 
 export function AppControl () {
 
+
   const handleProfileChange = (key, value) => {
     setResumeProfileData((prevState) => ({
       ...prevState,
@@ -28,6 +29,11 @@ export function AppControl () {
     }));
   };
 
+  const handleAddExperienceNode = (nodeData) => {
+    // Add a new experience node to the list
+    setExperienceNodes([...experienceNodes, nodeData]);
+  };
+
   const [resumeProfileData, setResumeProfileData] = useState({
     professional_name: 'Michael Scott',
     email_address: 'mike@dundermifflin.com',
@@ -42,6 +48,8 @@ export function AppControl () {
     worked_until: '2013-05-16',
     job_description: 'Somehow I managed.'
   });
+
+  const [experienceNodes, setExperienceNodes] = useState([]); // State for storing experience nodes
 
   // const [resumeEducationData, setResumeEducationData] = useState({
   //   company_name: '',
@@ -70,6 +78,7 @@ export function AppControl () {
         />
         <SidebarSection
           onChange={handleExperienceChange}
+          onAddNode={handleAddExperienceNode} // Pass the function to add nodes
           title="Experience"
           classes="sidebar-section"
           data={resumeExperienceData}
@@ -81,9 +90,8 @@ export function AppControl () {
         <Header>
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
         </Header>
-        <OutputProfile data={resumeProfileData} /> {/* Pass the data as a prop */}
-        <OutputExperience data={resumeExperienceData} />
-
+        <OutputProfile data={resumeProfileData} />
+        <OutputExperience experienceNodes={experienceNodes} />
       </OutputArea>
     </>
     )
