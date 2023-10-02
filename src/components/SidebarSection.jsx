@@ -3,7 +3,7 @@ import '../styles/Sidebar.css';
 
 function SidebarSection({ title, classes, data, onChange }) {
 
-  const InputContainer = ({ otherCounter, section, data }) => {
+  const InputContainer = ({ section }) => {
   
     const [localData, setLocalData] = useState({
       job_title: '',
@@ -13,6 +13,7 @@ function SidebarSection({ title, classes, data, onChange }) {
     });
   
     const handleInputChange = (key, value) => {
+      console.log('hello moto')
       setLocalData((prevData) => ({
         ...prevData,
         [key]: value,
@@ -24,12 +25,10 @@ function SidebarSection({ title, classes, data, onChange }) {
       e.target.closest('.inputs-container').remove();
     }
   
-    // Generate unique IDs based on otherCounter and section title
-    // This is not for React's keys, but for html form IDs to avoid conflicts.
-    let jobId = `${section}-job-title-${otherCounter}`;
-    let startId = `${section}-start-date-${otherCounter}`;
-    let endId = `${section}-end-date-${otherCounter}`;
-    let textareaId = `${section}-text-area-${otherCounter}` 
+    let jobId = `${section}-job-title-${keyCounter}`;
+    let startId = `${section}-start-date-${keyCounter}`;
+    let endId = `${section}-end-date-${keyCounter}`;
+    let textareaId = `${section}-text-area-${keyCounter}` 
   
     return (
       <div className="inputs-container">
@@ -84,17 +83,10 @@ function SidebarSection({ title, classes, data, onChange }) {
     );
   }
 
-  const handleChange = (key, value) => {
-    onChange(key, value);
-    console.log(`Hello Darkness`)
-  };
-
   const [keyCounter, setKeyCounter] = useState(0);
-  const [otherCounter, setOtherCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([
     <InputContainer
     key={keyCounter}
-    otherCounter={otherCounter}
     section={title}
     data={data}
     onChange={onChange}
@@ -102,14 +94,11 @@ function SidebarSection({ title, classes, data, onChange }) {
   ]);
 
   const handleAddBtnClick = () => {
-    const newOtherCounter = otherCounter + 1;
     setKeyCounter(keyCounter + 1);
-    setOtherCounter(newOtherCounter);
     setInputContainerList((prevList) => [
       ...prevList,
       <InputContainer
       key={keyCounter + 1}
-      otherCounter={newOtherCounter}
       section={title}
       data // Leave this blank so additional sections don't load Michael Scott.
       onChange={onChange}

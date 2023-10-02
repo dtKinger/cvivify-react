@@ -20,6 +20,8 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (key, value) => {
+    console.log(`key is ${key}`)
+    console.log(`value is ${value}`)
     setResumeExperienceData((prevState) => ({
       ...prevState,
       [key]: value,
@@ -41,21 +43,21 @@ export function AppControl () {
     job_description: 'Somehow I managed.'
   });
 
-  const [resumeEducationData, setResumeEducationData] = useState({
-    company_name: '',
-    job_title: '',
-    starting_date: '',
-    worked_until: '',
-    job_description: ''
-  });
+  // const [resumeEducationData, setResumeEducationData] = useState({
+  //   company_name: '',
+  //   job_title: '',
+  //   starting_date: '',
+  //   worked_until: '',
+  //   job_description: ''
+  // });
 
-  const [resumeOtherData, setResumeOtherData] = useState({
-    company_name: '',
-    job_title: '',
-    starting_date: '',
-    worked_until: '',
-    job_description: ''
-  });
+  // const [resumeOtherData, setResumeOtherData] = useState({
+  //   company_name: '',
+  //   job_title: '',
+  //   starting_date: '',
+  //   worked_until: '',
+  //   job_description: ''
+  // });
 
   return(
     <>
@@ -72,8 +74,8 @@ export function AppControl () {
           classes="sidebar-section"
           data={resumeExperienceData}
         />
-        <SidebarSection data={resumeEducationData} title="Education" classes="sidebar-section"/>
-        <SidebarSection data={resumeOtherData} title="Other" classes="sidebar-section"/>
+        {/* <SidebarSection data={resumeEducationData} title="Education" classes="sidebar-section"/>
+        <SidebarSection data={resumeOtherData} title="Other" classes="sidebar-section"/> */}
       </Sidebar>
       <OutputArea>
         <Header>

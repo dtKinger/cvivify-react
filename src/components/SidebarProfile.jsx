@@ -5,7 +5,7 @@ function SidebarProfile ({title, classes, data, onChange}) {
   const handleChange = (key, value) => {
     if (key == 'professional_name' && value.length < 30){
       onChange(key, value);
-    } else if (key == 'email' && value.length < 30){
+    } else if (key == 'email_address' && value.length < 30){
       onChange(key, value);
     } else if (key == 'phone_number' && value.length <= 18){
       onChange(key, value);
