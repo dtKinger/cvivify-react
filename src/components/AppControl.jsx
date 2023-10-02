@@ -49,7 +49,14 @@ export function AppControl () {
     job_description: 'Somehow I managed.'
   });
 
-  const [experienceNodes, setExperienceNodes] = useState([]); // State for storing experience nodes
+  const [experienceNodes, setExperienceNodes] = useState([
+    {
+      job_title: 'Hello',
+      starting_date: '2023-05-12',
+      worked_until: '2023-07-14',
+      job_description: 'We did our best'
+    },
+  ]); // State for storing experience nodes
 
   // const [resumeEducationData, setResumeEducationData] = useState({
   //   company_name: '',
