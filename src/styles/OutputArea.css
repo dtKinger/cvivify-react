@@ -48,6 +48,14 @@
   border-radius: 5px 5px 0 0;
 }
 
+.labels {
+  display: flex;
+  font-size: 0.75em;
+  font-weight: 400;
+}
+
+
+
 
 .ruler {
   position: relative;
