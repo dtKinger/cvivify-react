@@ -58,6 +58,16 @@ input{
   font-size: 12px;
 }
 
+.form-label__company{
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.form-input__company{
+  grid-column: 3 / 6;
+  grid-row: 1 / 2;
+}
+
 .form-label__job-title{
   grid-column: 1 / 4;
   grid-row: 2 / 3;

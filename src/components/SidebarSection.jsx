@@ -29,6 +29,8 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
         <button className="btn delete-btn" onClick={handleRemoveInput}>
           Remove
         </button>
+        <label className="form-label form-label__company" htmlFor={companyId}>Company: </label>
+        <input className="form-input form-input__company" type="text" />
         <label className="form-label form-label__job-title" htmlFor={jobId}>
           Your Role: 
         </label>
