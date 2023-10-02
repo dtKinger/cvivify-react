@@ -3,7 +3,7 @@ import '../styles/Sidebar.css';
 
 function SidebarSection({ title, classes, data, onChange }) {
 
-  const InputContainer = ({ section }) => {
+  const InputContainer = ({ section, keyCounter }) => {
   
     const [localData, setLocalData] = useState({
       job_title: '',
@@ -12,7 +12,7 @@ function SidebarSection({ title, classes, data, onChange }) {
       job_description: '',
     });
   
-    const handleInputChange = (key, value, node_id) => {
+    const handleInputChange = (key, value) => {
       setLocalData((prevData) => ({
         ...prevData,
         [key]: value
@@ -93,16 +93,17 @@ function SidebarSection({ title, classes, data, onChange }) {
   ]);
 
   const handleAddBtnClick = () => {
-    setKeyCounter(keyCounter + 1);
     setInputContainerList((prevList) => [
       ...prevList,
       <InputContainer
       key={keyCounter + 1}
       section={title}
+      keyCounter={keyCounter + 1}
       data // Leave this blank so additional sections don't load Michael Scott.
       onChange={onChange}
       />,
     ]);
+    setKeyCounter(keyCounter + 1);
   };
 
   return (
