@@ -20,6 +20,7 @@ function OutputExperience ({data}) {
   }
 
   // Use the data received from props, with defaults
+  console.log(data)
   const {
     company_name,
     job_title,
@@ -29,7 +30,7 @@ function OutputExperience ({data}) {
   } = data;
 
   const [OutputExperienceList, setOutputExperienceList] = useState([
-    <OutputExperienceNode key="0" data={data}/>
+    <OutputExperienceNode key="0"/>
   ])
 
   const updateExperienceList = (e) => {

@@ -3,7 +3,7 @@ import '../styles/Sidebar.css';
 
 function SidebarSection({ title, classes, data, onChange }) {
 
-  const InputContainer = ({ section }) => {
+  const InputContainer = ({ section, keyCounter }) => {
   
     const [localData, setLocalData] = useState({
       job_title: '',
@@ -93,6 +93,8 @@ function SidebarSection({ title, classes, data, onChange }) {
   ]);
 
   const handleAddBtnClick = () => {
+    setKeyCounter((prev) => prev + 1); // This doesn't seem to finish executing before the InputContainer is generated below
+
     setInputContainerList((prevList) => [
       ...prevList,
       <InputContainer
@@ -103,7 +105,6 @@ function SidebarSection({ title, classes, data, onChange }) {
       onChange={onChange}
       />,
     ]);
-    setKeyCounter((prevKey) => prevKey + 1); // This doesn't seem to finish executing before the InputContainer is generated below
   };
 
   return (
