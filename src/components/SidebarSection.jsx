@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
+import Experiences from '../data/experiences';
 import '../styles/Sidebar.css';
 
 function SidebarSection({ title, classes, data, onChange, onAddNode }) {
 
   const InputContainer = ({ section, keyCounter }) => {
   
-    const [localData, setLocalData] = useState({
-      job_title: '',
-      starting_date: '',
-      worked_until: '',
-      job_description: '',
-    });
-  
     const handleInputChange = (key, value) => {
-      setLocalData((prevData) => ({
+      setExperiences[0]((prevData) => ({
         ...prevData,
         [key]: value
       }));
-      onChange(key, value); // Call the parent onChange to update AppControl state
+      onChange(sectionKey, key, value); // Call the parent onChange to update AppControl state
     };
 
     const handleRemoveInput = (e) => {
@@ -42,8 +36,8 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           id={jobId}
           name={jobId}
           type="text"
-          value={localData.job_title}
-          onChange={(e) => handleInputChange("job_title", e.target.value)} // This controls my input
+          value={Experiences[0].job_title}
+          onChange={(e) => handleInputChange(sectionKey, "job_title", e.target.value)}
           // using the helper function handleChange which takes any prop as a key, then sets value
         />
         <label className="form-label form-label__start-date" htmlFor={startId}>
@@ -54,7 +48,7 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           id={startId}
           name={startId}
           type="date"
-          value={localData.starting_date}
+          value={Experiences[0].starting_date}
           onChange={(e) => handleInputChange("starting_date", e.target.value)}
         />
         <label className="form-label form-label__end-date" htmlFor={endId}>
@@ -65,7 +59,7 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           id={endId}
           name={endId}
           type="date"
-          value={localData.worked_until}
+          value={Experiences[0].worked_until}
           onChange={(e) => handleInputChange("worked_until", e.target.value)}
         />
         <label className="form-label form-label__textarea" htmlFor={textareaId}>
@@ -75,7 +69,7 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           id={textareaId}
           rows="10"
           className="textarea"
-          value={localData.job_description}
+          value={Experiences[0].job_description}
           onChange={(e) => handleInputChange("job_description", e.target.value)}
         ></textarea>
       </div>
@@ -97,13 +91,15 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
 
     // Create a new node data object
     const newNodeData = {
-      job_title: '',
-      starting_date: '',
-      worked_until: '',
-      job_description: '',
+      sectionKey: crypto.randomUUID(),
+      job_title: "",
+      company: "",
+      start_date: "",
+      worked_until: "",
+      job_description: ""
     };
 
-    // Call the onAddNode function to add the new node
+    // Push it into Experiences data
     onAddNode(newNodeData);
 
     setInputContainerList((prevList) => [
