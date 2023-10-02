@@ -30,7 +30,7 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           Remove
         </button>
         <label className="form-label form-label__company" htmlFor={companyId}>Company: </label>
-        <input className="form-input form-input__company" type="text" />
+        <input id={companyId} className="form-input form-input__company" type="text" />
         <label className="form-label form-label__job-title" htmlFor={jobId}>
           Your Role: 
         </label>
@@ -91,7 +91,6 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
   ]);
 
   const handleAddBtnClick = () => {
-    setIdCounter((prev) => prev + 1);
 
     // Create a new node data object
     const newNodeData = {
@@ -106,10 +105,11 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
     // Push it into Experiences data
     onAddNode(newNodeData);
 
+    setIdCounter((prev) => prev + 1);
     setInputContainerList((prevList) => [
       ...prevList,
       <InputContainer
-      key={IdCounter + 1}
+      key={idCounter + 1}
       section={title}
       idCounter={idCounter + 1}
       data // Leave this blank so additional sections don't load Michael Scott.
