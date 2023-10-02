@@ -1,6 +1,6 @@
 const Experiences = [
   {
-    sectionKey: crypto.randomUUID(),
+    sharedId: 0,
     job_title: "Regional Manager",
     company: "Dunder Mifflin",
     start_date: "2005-05-13",

@@ -21,10 +21,10 @@ export function AppControl () {
   const uniqueKey = () => crypto.randomUUID(); // Generates a uuid;
 
   const addSection = () => {
-    sectionKey = uniqueKey();
+    sharedId = uniqueKey();
     setExperienceNodes((prevState) => ({
       ...prevState,
-      [sectionKey]: {
+      [sharedId]: {
         job_title: '',  
         starting_date: '',
         worked_until: '',
@@ -40,11 +40,11 @@ export function AppControl () {
     }));
   };
   
-  const handleExperienceChange = (sectionKey, key, value) => {
+  const handleExperienceChange = (sharedId, key, value) => {
     setExperiences((prevExperiences) => ({
       ...prevExperiences,
-      [sectionKey]: {
-        ...prevExperiences[sectionKey],
+      [sharedId]: {
+        ...prevExperiences[sharedId],
         [key]: value,
       },
     }));
@@ -69,7 +69,7 @@ export function AppControl () {
           data={resumeProfileData} // Pass it back into Sidebar, because it's a controlled component
         />
         <SidebarSection
-          sectionKey={uniqueKey} // Pass the unique key as a prop
+          sharedId={uniqueKey} // Pass the unique key as a prop
           data={experienceNodes[uniqueKey]} // Use the data corresponding to the unique key
           onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes

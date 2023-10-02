@@ -4,7 +4,7 @@ import '../styles/OutputArea.css'
 function OutputExperience({ experiencesArray }) {
 
   const ListOutputExperiences = experiencesArray.map((node) => (
-      <div key={node.sectionKey} section-id={node.sectionKey} className="experience-node">
+      <div key={node.sharedId} section-id={node.sharedId} className="experience-node">
         <h2 className="company-name"><span className="labels">Employer: </span>{node.company_name}</h2>
         <h3 className="job-title"><span className="labels">Role: </span>{node.job_title}</h3>
         <div className="job-dates">

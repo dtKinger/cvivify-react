@@ -4,24 +4,25 @@ import '../styles/Sidebar.css';
 
 function SidebarSection({ title, classes, data, onChange, onAddNode }) {
 
-  const InputContainer = ({ section, keyCounter }) => {
+  const InputContainer = ({ section, idCounter, sharedId }) => {
   
-    const handleInputChange = (key, value) => {
-      setExperiences[0]((prevData) => ({
+    const handleInputChange = (sharedId, key, value) => {
+      setExperiences[sharedId]((prevData) => ({
         ...prevData,
         [key]: value
       }));
-      onChange(sectionKey, key, value); // Call the parent onChange to update AppControl state
+      onChange(sharedId, key, value); // Call the parent onChange to update AppControl state
     };
 
     const handleRemoveInput = (e) => {
       e.target.closest('.inputs-container').remove();
     }
   
-    let jobId = `${section}-job-title-${keyCounter}`;
-    let startId = `${section}-start-date-${keyCounter}`;
-    let endId = `${section}-end-date-${keyCounter}`;
-    let textareaId = `${section}-text-area-${keyCounter}` 
+    let jobId = `${section}-job-title-${idCounter}`;
+    let companyId = `${section}-company-${idCounter}`;
+    let startId = `${section}-start-date-${idCounter}`;
+    let endId = `${section}-end-date-${idCounter}`;
+    let textareaId = `${section}-text-area-${idCounter}` 
   
     return (
       <div className="inputs-container">
@@ -37,7 +38,7 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           name={jobId}
           type="text"
           value={Experiences[0].job_title}
-          onChange={(e) => handleInputChange(sectionKey, "job_title", e.target.value)}
+          onChange={(e) => handleInputChange(sharedId, "job_title", e.target.value)}
           // using the helper function handleChange which takes any prop as a key, then sets value
         />
         <label className="form-label form-label__start-date" htmlFor={startId}>
@@ -76,10 +77,11 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
     );
   }
 
-  const [keyCounter, setKeyCounter] = useState(0);
+  const [idCounter, setIdCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([
     <InputContainer
-    key={keyCounter}
+    sharedId={0}
+    key={0}
     section={title}
     data={data}
     onChange={onChange}
@@ -87,11 +89,11 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
   ]);
 
   const handleAddBtnClick = () => {
-    setKeyCounter((prev) => prev + 1);
+    setIdCounter((prev) => prev + 1);
 
     // Create a new node data object
     const newNodeData = {
-      sectionKey: crypto.randomUUID(),
+      sharedId: crypto.randomUUID(),
       job_title: "",
       company: "",
       start_date: "",
@@ -105,9 +107,9 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
     setInputContainerList((prevList) => [
       ...prevList,
       <InputContainer
-      key={keyCounter + 1}
+      key={IdCounter + 1}
       section={title}
-      keyCounter={keyCounter + 1}
+      idCounter={idCounter + 1}
       data // Leave this blank so additional sections don't load Michael Scott.
       onChange={onChange}
       />,
