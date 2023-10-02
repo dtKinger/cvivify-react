@@ -12,11 +12,10 @@ function SidebarSection({ title, classes, data, onChange }) {
       job_description: '',
     });
   
-    const handleInputChange = (key, value) => {
-      console.log('hello moto')
+    const handleInputChange = (key, value, node_id) => {
       setLocalData((prevData) => ({
         ...prevData,
-        [key]: value,
+        [key]: value
       }));
       onChange(key, value); // Call the parent onChange to update AppControl state
     };

@@ -20,8 +20,8 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (key, value) => {
-    console.log(`key is ${key}`)
-    console.log(`value is ${value}`)
+    // console.log(`key is ${key}`)
+    // console.log(`value is ${value}`)
     setResumeExperienceData((prevState) => ({
       ...prevState,
       [key]: value,

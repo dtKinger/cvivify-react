@@ -20,7 +20,6 @@ function OutputExperience ({data}) {
   }
 
   // Use the data received from props, with defaults
-  // console.log(data)
   const {
     company_name,
     job_title,
