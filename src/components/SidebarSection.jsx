@@ -48,7 +48,7 @@ function SidebarSection({ title, classes, data, onChange, onAddNode }) {
           id={startId}
           name={startId}
           type="date"
-          value={Experiences[0].starting_date}
+          value={Experiences[0].start_date}
           onChange={(e) => handleInputChange("starting_date", e.target.value)}
         />
         <label className="form-label form-label__end-date" htmlFor={endId}>

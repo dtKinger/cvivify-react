@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import '../styles/OutputArea.css'
 
-function OutputExperience({ experienceNodes }) {
+function OutputExperience({ experiencesArray }) {
 
-  const ListOutputExperiences = experienceNodes.map((node, index) => (
-      <div key={index} className="experience-node">
+  const ListOutputExperiences = experiencesArray.map((node) => (
+      <div key={node.sectionKey} section-id={node.sectionKey} className="experience-node">
         <h2 className="company-name"><span className="labels">Employer: </span>{node.company_name}</h2>
         <h3 className="job-title"><span className="labels">Role: </span>{node.job_title}</h3>
         <div className="job-dates">
@@ -16,7 +16,6 @@ function OutputExperience({ experienceNodes }) {
         </div>
       </div>
     ))
-  
   
   return (
     <div className="output-component">

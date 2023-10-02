@@ -18,18 +18,20 @@ export function AppControl () {
     setExperienceNodes([...Experiences, zData]);
   };
 
-  // const addSection = () => {
-  //   // const uniqueKey = crypto.randomUUID(); // Generates a uuid;
-  //   setExperienceData((prevState) => ({
-  //     ...prevState,
-  //     [uniqueKey]: {
-  //       job_title: '',  
-  //       starting_date: '',
-  //       worked_until: '',
-  //       job_description: '',
-  //     },
-  //   }));
-  // };
+  const uniqueKey = () => crypto.randomUUID(); // Generates a uuid;
+
+  const addSection = () => {
+    sectionKey = uniqueKey();
+    setExperienceNodes((prevState) => ({
+      ...prevState,
+      [sectionKey]: {
+        job_title: '',  
+        starting_date: '',
+        worked_until: '',
+        job_description: '',
+      },
+    }));
+  };
 
   const handleProfileChange = (key, value) => {
     setResumeProfileData((prevState) => ({
@@ -39,15 +41,14 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (sectionKey, key, value) => {
-    setExperienceData((prevState) => ({
-      ...prevState,
+    setExperiences((prevExperiences) => ({
+      ...prevExperiences,
       [sectionKey]: {
-        ...prevState[sectionKey],
+        ...prevExperiences[sectionKey],
         [key]: value,
       },
     }));
   };
-
 
   const [resumeProfileData, setResumeProfileData] = useState({
     professional_name: 'Michael Scott',
@@ -68,8 +69,8 @@ export function AppControl () {
           data={resumeProfileData} // Pass it back into Sidebar, because it's a controlled component
         />
         <SidebarSection
-          // sectionKey={uniqueKey} // Pass the unique key as a prop
-          // data={experienceData[uniqueKey]} // Use the data corresponding to the unique key
+          sectionKey={uniqueKey} // Pass the unique key as a prop
+          data={experienceNodes[uniqueKey]} // Use the data corresponding to the unique key
           onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes
           title="Experience"
@@ -82,8 +83,7 @@ export function AppControl () {
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
         </Header>
         <OutputProfile data={resumeProfileData} />
-        <OutputExperience experienceNodes={experienceNodes} /> 
-        {/* key={key} data={experienceData[key]} */}
+        <OutputExperience experiencesArray={experienceNodes}/> 
       </OutputArea>
     </>
     )
