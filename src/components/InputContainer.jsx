@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Sidebar.css"
 
-const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemoveNode }) => {
+const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => {
   
     console.info(data)
   const handleInputChange = (sharedId, key, value) => {
@@ -13,11 +13,11 @@ const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemove
     onRemoveNode(sharedId);
   };
 
-  let jobId = `${section}-job-title-${idCounter}`;
-  let companyId = `${section}-company-${idCounter}`;
-  let startId = `${section}-start-date-${idCounter}`;
-  let endId = `${section}-end-date-${idCounter}`;
-  let textareaId = `${section}-text-area-${idCounter}` 
+  let jobId = `${section}-job-title-${sharedId}`;
+  let companyId = `${section}-company-${sharedId}`;
+  let startId = `${section}-start-date-${sharedId}`;
+  let endId = `${section}-end-date-${sharedId}`;
+  let textareaId = `${section}-text-area-${sharedId}` 
 
   return (
     <div key={sharedId} className="inputs-container">
@@ -29,7 +29,7 @@ const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemove
         id={companyId}
         className="form-input form-input__company"
         type="text"
-        value={data[idCounter].company}
+        value={data[0].company}
         onChange={(e) => handleInputChange(sharedId, "company", e.target.value)}
       />
       <label className="form-label form-label__job-title" htmlFor={jobId}>
@@ -40,7 +40,7 @@ const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemove
         id={jobId}
         name={jobId}
         type="text"
-        value={data[idCounter].job_title}
+        value={data[0].job_title}
         onChange={(e) => handleInputChange(sharedId, "job_title", e.target.value)}
         // using the helper function handleChange which takes any prop as a key, then sets value
       />
@@ -52,7 +52,7 @@ const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemove
         id={startId}
         name={startId}
         type="date"
-        value={data[idCounter].start_date}
+        value={data[0].start_date}
         onChange={(e) => handleInputChange(sharedId, "starting_date", e.target.value)}
       />
       <label className="form-label form-label__end-date" htmlFor={endId}>
@@ -63,7 +63,7 @@ const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemove
         id={endId}
         name={endId}
         type="date"
-        value={data[idCounter].worked_until}
+        value={data[0].worked_until}
         onChange={(e) => handleInputChange(sharedId, "worked_until", e.target.value)}
       />
       <label className="form-label form-label__textarea" htmlFor={textareaId}>
@@ -73,7 +73,7 @@ const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemove
         id={textareaId}
         rows="10"
         className="textarea"
-        value={data[idCounter].job_description}
+        value={data[0].job_description}
         onChange={(e) => handleInputChange(sharedId, "job_description", e.target.value)}
       ></textarea>
     </div>
