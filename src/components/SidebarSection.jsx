@@ -32,7 +32,7 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
     onAddNode(newNodeData)
     console.log(`idCounter is: ${idCounter}`)
     console.log(`sharedId is ${sharedId}`)
-    console.log(`experiencesData is ${experiencesData}`)
+    console.info(experiencesData)
 
     setIdCounter((prev) => prev + 1); // Use idCounter+1 in the snapshot, then increment it here asynchronously
     setInputContainerList(prevContainers => ([
