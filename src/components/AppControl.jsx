@@ -16,11 +16,10 @@ export function AppControl () {
     
     setExperiencesData((prevExperiences) => ({
       ...prevExperiences,
-      [newNodeData.sharedId]: {
+      [newNodeData.sharedId ]: {
         ...newNodeData
       },
     }));
-    console.log(newNodeData.sharedId)
   };
 
   const handleProfileChange = (key, value) => {
