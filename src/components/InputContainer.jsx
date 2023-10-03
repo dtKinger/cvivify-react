@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Sidebar.css"
 
-const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, onRemoveNode }) => {
+const InputContainer = ({ section, idCounter = 0, sharedId, data, onChange, onRemoveNode }) => {
   
   const handleInputChange = (sharedId, key, value) => {
     onChange(sharedId, key, value); // Call the parent onChange to update AppControl state
@@ -28,8 +28,8 @@ const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, o
         id={companyId}
         className="form-input form-input__company"
         type="text"
-        value={experiences[sharedId].company}
-        onChange={(e) => handleInputChange(e.target.sharedId, "company", e.target.value)}
+        value={data[idCounter].company}
+        onChange={(e) => handleInputChange(sharedId, "company", e.target.value)}
       />
       <label className="form-label form-label__job-title" htmlFor={jobId}>
         Your Role: 
@@ -39,8 +39,8 @@ const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, o
         id={jobId}
         name={jobId}
         type="text"
-        value={experiences[sharedId].job_title}
-        onChange={(e) => handleInputChange("job_title", e.target.value)}
+        value={data[idCounter].job_title}
+        onChange={(e) => handleInputChange(sharedId, "job_title", e.target.value)}
         // using the helper function handleChange which takes any prop as a key, then sets value
       />
       <label className="form-label form-label__start-date" htmlFor={startId}>
@@ -51,8 +51,8 @@ const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, o
         id={startId}
         name={startId}
         type="date"
-        value={experiences[sharedId].start_date}
-        onChange={(e) => handleInputChange("starting_date", e.target.value)}
+        value={data[idCounter].start_date}
+        onChange={(e) => handleInputChange(sharedId, "starting_date", e.target.value)}
       />
       <label className="form-label form-label__end-date" htmlFor={endId}>
         To:
@@ -62,8 +62,8 @@ const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, o
         id={endId}
         name={endId}
         type="date"
-        value={experiences[sharedId].worked_until}
-        onChange={(e) => handleInputChange("worked_until", e.target.value)}
+        value={data[idCounter].worked_until}
+        onChange={(e) => handleInputChange(sharedId, "worked_until", e.target.value)}
       />
       <label className="form-label form-label__textarea" htmlFor={textareaId}>
         Describe your role:
@@ -72,8 +72,8 @@ const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, o
         id={textareaId}
         rows="10"
         className="textarea"
-        value={experiences[sharedId].job_description}
-        onChange={(e) => handleInputChange("job_description", e.target.value)}
+        value={data[idCounter].job_description}
+        onChange={(e) => handleInputChange(sharedId, "job_description", e.target.value)}
       ></textarea>
     </div>
   );

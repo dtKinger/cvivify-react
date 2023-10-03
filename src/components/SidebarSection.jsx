@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputContainer from './InputContainer.jsx'
 import '../styles/Sidebar.css';
 
-function SidebarSection({ onRemoveNode, onChange, title, classes, experiences, onAddNode }) {
+function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesData, onAddNode }) {
 
   const [idCounter, setIdCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([
@@ -12,11 +12,11 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiences, o
     section={title}
     onChange={onChange}
     onRemoveNode={onRemoveNode}
-    experiences={experiences}
+    data={experiencesData}
     />,
   ]);
 
-  const handleAddBtnClick = () => {
+  const handleAddBtnClick = (idCounter) => {
 
     const sharedId = crypto.randomUUID()
 
@@ -32,7 +32,14 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiences, o
 
     setInputContainerList(prevContainers => ([
       ...prevContainers,
-      <InputContainer key={sharedId} />
+      <InputContainer 
+      key={idCounter}
+      sharedId={sharedId}
+      section={title}
+      onChange={onChange}
+      onRemoveNode={onRemoveNode}
+      data={experiencesData} 
+      />
     ]))
 
     onAddNode(newNodeData)

@@ -12,15 +12,15 @@ import OutputProfile from './OutputProfile.jsx'
 
 export function AppControl () {
 
-  const handleAddExperienceNode = (newNodeData, sharedId) => {
+  const handleAddExperienceNode = (newNodeData) => {
     
-    setExperiences((prevExperiences) => ({
+    setExperiencesData((prevExperiences) => ({
       ...prevExperiences,
-      [sharedId]: {
+      [newNodeData.sharedId]: {
         ...newNodeData
       },
     }));
-    
+    console.log(newNodeData.sharedId)
   };
 
   const handleProfileChange = (key, value) => {
@@ -32,19 +32,19 @@ export function AppControl () {
   
   const handleExperienceChange = (sharedId, key, value) => {
     
-    setExperiences((prevExperiences) => (
+    setExperiencesData((prevExperiencesData) => (
       {
-      ...prevExperiences,
+      ...prevExperiencesData,
       [sharedId]: {
-        ...prevExperiences[sharedId],
+        ...prevExperiencesData[sharedId],
         [key]: value,
       },
     }));
   };
 
   const handleRemoveExperienceNode = (sharedId) => {
-    const { [sharedId]: removedNode, ...restExperiences } = experiences;
-    setExperiences(restExperiences);
+    const { [sharedId]: removedNode, ...restExperiencesData } = experiencesData;
+    setExperiencesData(restExperiencesData);
   };
 
   const [resumeProfileData, setResumeProfileData] = useState({
@@ -54,7 +54,7 @@ export function AppControl () {
     mission_statement: "Don't ever, for any reason, do anything to anyone for any reason ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you've been... ever, for any reason whatsoever...",
   });
   
-  const [experiences, setExperiences] = useState([
+  const [experiencesData, setExperiencesData] = useState([
     {
       sharedId: 0,
       job_title: "Regional Manager",
@@ -62,8 +62,7 @@ export function AppControl () {
       start_date: "2005-05-13",
       worked_until: "2013-07-21",
       job_description: 'Somehow I manage.'
-    }
-    
+    } 
   ]); // State for storing experience nodes
   
   return(
@@ -81,7 +80,7 @@ export function AppControl () {
           onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes
           onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
-          experiences={experiences}
+          experiencesData={experiencesData}
         />
       
       </Sidebar>
@@ -90,7 +89,7 @@ export function AppControl () {
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
         </Header>
         <OutputProfile data={resumeProfileData} />
-        <OutputExperience experiencesArray={Object.values(experiences)}/> 
+        <OutputExperience experiencesArray={Object.values(experiencesData)}/> 
       </OutputArea>
     </>
     )
