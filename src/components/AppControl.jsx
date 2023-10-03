@@ -19,6 +19,7 @@ export function AppControl () {
       ...prevExperiences,
       [zData.sharedId]: zData,
     }));
+    console.log(Experiences)
   };
 
   const uniqueKey = () => crypto.randomUUID(); // Generates a uuid;
@@ -44,6 +45,10 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (sharedId, key, value) => {
+    console.log(`Handling change of :`)
+    console.log(sharedId)
+    console.log(key)
+    console.log(value)
     setExperiences((prevExperiences) => ({
       ...prevExperiences,
       [sharedId]: {
@@ -54,6 +59,7 @@ export function AppControl () {
   };
 
   const handleRemoveExperienceNode = (sharedId) => {
+    console.log(`Removing ${sharedId}`)
     const { [sharedId]: removedNode, ...restExperiences } = experiences;
     setExperiences(restExperiences);
   };
@@ -77,11 +83,12 @@ export function AppControl () {
           data={resumeProfileData} // Pass it back into Sidebar, because it's a controlled component
         />
         <SidebarSection
+          title="Experience"
+          classes="sidebar-section"
           onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes
           onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
-          title="Experience"
-          classes="sidebar-section"
+          data={experiences}
         />
       
       </Sidebar>
