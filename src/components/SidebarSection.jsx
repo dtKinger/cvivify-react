@@ -3,6 +3,7 @@ import InputContainer from './InputContainer.jsx'
 import '../styles/Sidebar.css';
 
 function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesData, onAddNode }) {
+  const sharedId = crypto.randomUUID()
 
   const [idCounter, setIdCounter] = useState(0);
   const [inputContainerList, setInputContainerList] = useState([
@@ -18,7 +19,7 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
   ]);
 
   const handleAddBtnClick = () => {
-    const sharedId = crypto.randomUUID()
+    
 
     let newNodeData = {
       sharedId: sharedId,
