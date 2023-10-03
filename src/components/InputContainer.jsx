@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../styles/Sidebar.css"
-import Experiences from "../data/experiences";
 
 const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, onRemoveNode }) => {
   

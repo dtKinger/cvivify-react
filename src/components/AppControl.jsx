@@ -9,7 +9,6 @@ import Icon from './Icon.jsx'
 import '../index.css'
 import downloadPDF from "../assets/download-as-PDF-icon.svg"
 import OutputProfile from './OutputProfile.jsx'
-import Experiences from '../data/experiences';
 
 export function AppControl () {
 
@@ -55,7 +54,17 @@ export function AppControl () {
     mission_statement: "Don't ever, for any reason, do anything to anyone for any reason ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you've been... ever, for any reason whatsoever...",
   });
   
-  const [experiences, setExperiences] = useState(Experiences); // State for storing experience nodes
+  const [experiences, setExperiences] = useState([
+    {
+      sharedId: 0,
+      job_title: "Regional Manager",
+      company: "Dunder Mifflin",
+      start_date: "2005-05-13",
+      worked_until: "2013-07-21",
+      job_description: 'Somehow I manage.'
+    }
+    
+  ]); // State for storing experience nodes
   
   return(
     <>
