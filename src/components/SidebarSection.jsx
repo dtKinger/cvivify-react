@@ -36,7 +36,7 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
       ...prevContainers,
       <InputContainer 
       key={sharedId}
-      sharedId={newNodeData.sharedId}
+      sharedId={sharedId}
       section={title}
       onChange={onChange}
       onRemoveNode={onRemoveNode}

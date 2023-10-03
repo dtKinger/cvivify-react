@@ -12,14 +12,14 @@ import OutputProfile from './OutputProfile.jsx'
 
 export function AppControl () {
 
-  const handleAddExperienceNode = (newNodeData) => {
+  const handleAddExperienceNode = (newNodeData) => [
     setExperiencesData((prevExperiences) => ({
       ...prevExperiences,
       [newNodeData.sharedId]: {
         ...newNodeData
       },
-    }));
-  };
+    }))
+  ];
 
   const handleProfileChange = (key, value) => {
     setResumeProfileData((prevState) => ({
@@ -29,7 +29,7 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (sharedId, key, value) => {
-    
+  
     setExperiencesData((prevExperiencesData) => (
       {
       ...prevExperiencesData,

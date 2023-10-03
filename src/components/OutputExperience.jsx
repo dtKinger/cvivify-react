@@ -7,7 +7,7 @@ function OutputExperience({ experiencesArray, sharedId }) {
         <h2 className="company-name"><span className="labels">Employer: </span>{node.company}</h2>
         <h3 className="job-title"><span className="labels">Role: </span>{node.job_title}</h3>
         <div className="job-dates">
-          <span className="start-date"><span className="labels">From: </span>{node.starting_date} -</span>
+          <span className="start-date"><span className="labels">From: </span>{node.start_date} -</span>
           <span className="end-date"><span className="labels">Until: </span>{node.worked_until}</span>
         </div>
         <div className="profile-header__mission">

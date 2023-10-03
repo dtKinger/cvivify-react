@@ -2,8 +2,7 @@ import { useState } from "react";
 import "../styles/Sidebar.css"
 
 const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => {
-  
-    console.info(data)
+
   const handleInputChange = (sharedId, key, value) => {
     onChange(sharedId, key, value); // Call the parent onChange to update AppControl state
   };
@@ -19,7 +18,8 @@ const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => 
   let endId = `${section}-end-date-${sharedId}`;
   let textareaId = `${section}-text-area-${sharedId}` 
 
-  return (
+  const InputContainerList = data.map((node) => (
+    
     <div key={sharedId} className="inputs-container">
       <button className="btn delete-btn" onClick={handleRemoveInput}>
         Remove
@@ -29,7 +29,7 @@ const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => 
         id={companyId}
         className="form-input form-input__company"
         type="text"
-        value={data[0].company}
+        value={node.company}
         onChange={(e) => handleInputChange(sharedId, "company", e.target.value)}
       />
       <label className="form-label form-label__job-title" htmlFor={jobId}>
@@ -40,7 +40,7 @@ const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => 
         id={jobId}
         name={jobId}
         type="text"
-        value={data[0].job_title}
+        value={node.job_title}
         onChange={(e) => handleInputChange(sharedId, "job_title", e.target.value)}
         // using the helper function handleChange which takes any prop as a key, then sets value
       />
@@ -52,8 +52,8 @@ const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => 
         id={startId}
         name={startId}
         type="date"
-        value={data[0].start_date}
-        onChange={(e) => handleInputChange(sharedId, "starting_date", e.target.value)}
+        value={node.start_date}
+        onChange={(e) => handleInputChange(sharedId, "start_date", e.target.value)}
       />
       <label className="form-label form-label__end-date" htmlFor={endId}>
         To:
@@ -63,7 +63,7 @@ const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => 
         id={endId}
         name={endId}
         type="date"
-        value={data[0].worked_until}
+        value={node.worked_until}
         onChange={(e) => handleInputChange(sharedId, "worked_until", e.target.value)}
       />
       <label className="form-label form-label__textarea" htmlFor={textareaId}>
@@ -73,10 +73,16 @@ const InputContainer = ({ section, sharedId, data, onChange, onRemoveNode }) => 
         id={textareaId}
         rows="10"
         className="textarea"
-        value={data[0].job_description}
+        value={node.job_description}
         onChange={(e) => handleInputChange(sharedId, "job_description", e.target.value)}
       ></textarea>
-    </div>
+      </div>
+  ))
+
+  return (
+    <>
+      {InputContainerList}
+    </>
   );
 }
 
