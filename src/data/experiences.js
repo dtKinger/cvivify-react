@@ -8,5 +8,5 @@ const Experiences = [
     job_description: 'Somehow I manage.'
   },
 ]
-
+console.log()
 export default Experiences;

@@ -13,28 +13,15 @@ import Experiences from '../data/experiences';
 
 export function AppControl () {
 
-  const handleAddExperienceNode = (zData) => {
-    // Add a new experience node to the list
-    setExperiences((prevExperiences) => ({
-      ...prevExperiences,
-      [zData.sharedId]: zData,
-    }));
-    console.log(Experiences)
-  };
-
-  const uniqueKey = () => crypto.randomUUID(); // Generates a uuid;
-
-  const addSection = () => {
-    const sharedId = uniqueKey();
+  const handleAddExperienceNode = (newNodeData, sharedId) => {
+    
     setExperiences((prevExperiences) => ({
       ...prevExperiences,
       [sharedId]: {
-        job_title: '',  
-        starting_date: '',
-        worked_until: '',
-        job_description: '',
+        ...newNodeData
       },
     }));
+    console.log(Experiences)
   };
 
   const handleProfileChange = (key, value) => {
@@ -45,11 +32,9 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (sharedId, key, value) => {
-    console.log(`Handling change of :`)
-    console.log(sharedId)
-    console.log(key)
-    console.log(value)
-    setExperiences((prevExperiences) => ({
+    
+    setExperiences((prevExperiences) => (
+      {
       ...prevExperiences,
       [sharedId]: {
         ...prevExperiences[sharedId],
@@ -70,9 +55,9 @@ export function AppControl () {
     phone_number: '+1 (234) 567-8910',
     mission_statement: "Don't ever, for any reason, do anything to anyone for any reason ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you've been... ever, for any reason whatsoever...",
   });
-
+  
   const [experiences, setExperiences] = useState(Experiences); // State for storing experience nodes
-  const sharedId = uniqueKey();
+  
   return(
     <>
       <Sidebar>
@@ -88,7 +73,7 @@ export function AppControl () {
           onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes
           onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
-          data={experiences}
+          experiences={experiences}
         />
       
       </Sidebar>
