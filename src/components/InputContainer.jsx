@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "../styles/Sidebar.css"
 
-const InputContainer = ({ section, idCounter = 0, sharedId, data, onChange, onRemoveNode }) => {
+const InputContainer = ({ section, idCounter, sharedId, data, onChange, onRemoveNode }) => {
   
+    console.info(data)
   const handleInputChange = (sharedId, key, value) => {
     onChange(sharedId, key, value); // Call the parent onChange to update AppControl state
   };

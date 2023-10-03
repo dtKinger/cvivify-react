@@ -8,6 +8,7 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
   const [inputContainerList, setInputContainerList] = useState([
     <InputContainer
     key={idCounter}
+    idCounter={idCounter}
     sharedId={0}
     section={title}
     onChange={onChange}
@@ -17,7 +18,6 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
   ]);
 
   const handleAddBtnClick = () => {
-  
     const sharedId = crypto.randomUUID()
 
     let newNodeData = {
@@ -29,23 +29,24 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
       job_description: "Tell us about it."
     };
     
+    onAddNode(newNodeData)
+    console.log(`idCounter is: ${idCounter}`)
+    console.log(`sharedId is ${sharedId}`)
+    console.log(`experiencesData is ${experiencesData}`)
 
+    setIdCounter((prev) => prev + 1); // Use idCounter+1 in the snapshot, then increment it here asynchronously
     setInputContainerList(prevContainers => ([
       ...prevContainers,
       <InputContainer 
-      key={idCounter + 1}
-      sharedId={sharedId}
+      key={sharedId}
+      idCounter={idCounter}
+      sharedId={newNodeData.sharedId}
       section={title}
       onChange={onChange}
       onRemoveNode={onRemoveNode}
       data={experiencesData} 
       />
     ]))
-    setIdCounter(prev => prev + 1); // Use idCounter+1 in the snapshot, then increment it here asynchronously
-
-    onAddNode(newNodeData)
-    console.log(`idCounter is: ${idCounter}`)
-    console.log(`sharedId is ${sharedId}`)
   };
 
   return (
