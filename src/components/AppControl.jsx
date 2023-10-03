@@ -21,7 +21,7 @@ export function AppControl () {
         ...newNodeData
       },
     }));
-    console.log(Experiences)
+    
   };
 
   const handleProfileChange = (key, value) => {
@@ -44,7 +44,6 @@ export function AppControl () {
   };
 
   const handleRemoveExperienceNode = (sharedId) => {
-    console.log(`Removing ${sharedId}`)
     const { [sharedId]: removedNode, ...restExperiences } = experiences;
     setExperiences(restExperiences);
   };

@@ -9,7 +9,6 @@ const InputContainer = ({ section, idCounter, sharedId, experiences, onChange, o
   };
 
   const handleRemoveInput = () => {
-    console.log(`Removing Node...`)
     // Remove this node by calling the parent's removal function
     onRemoveNode(sharedId);
   };

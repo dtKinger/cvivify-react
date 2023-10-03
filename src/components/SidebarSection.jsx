@@ -17,9 +17,25 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiences, o
   ]);
 
   const handleAddBtnClick = () => {
+
     const sharedId = crypto.randomUUID()
 
-    onAddNode(sharedId)
+    let newNodeData = {
+      sharedId: sharedId,
+      job_title: "Your Role",
+      company: "Your Employer",
+      start_date: "",
+      worked_until: "",
+      job_description: "Tell us about it."
+    };
+    
+
+    setInputContainerList(prevContainers => ([
+      ...prevContainers,
+      <InputContainer key={sharedId} />
+    ]))
+
+    onAddNode(newNodeData)
 
   };
 

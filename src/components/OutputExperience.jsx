@@ -2,9 +2,8 @@ import { useState } from 'react';
 import '../styles/OutputArea.css'
 
 function OutputExperience({ experiencesArray, sharedId }) {
-console.log(experiencesArray)
-  const ListOutputExperiences = experiencesArray.map((node, sharedId) => (
-      <div key={sharedId} section-id={node.sharedId} className="experience-node">
+  const ListOutputExperiences = experiencesArray.map((node) => (
+      <div key={node.sharedId} section-id={node.sharedId} className="experience-node">
         <h2 className="company-name"><span className="labels">Employer: </span>{node.company}</h2>
         <h3 className="job-title"><span className="labels">Role: </span>{node.job_title}</h3>
         <div className="job-dates">
