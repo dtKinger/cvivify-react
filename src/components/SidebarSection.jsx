@@ -1,20 +1,9 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import InputContainer from './InputContainer.jsx'
 import '../styles/Sidebar.css';
 
-function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesData, onAddNode }) {
+function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesData, onAddNode, children }) {
   const sharedId = crypto.randomUUID()
-
-  const [inputContainerList, setInputContainerList] = useState([
-    <InputContainer
-    key={0}
-    sharedId={0}
-    section={title}
-    onChange={onChange}
-    onRemoveNode={onRemoveNode}
-    data={experiencesData}
-    />,
-  ]);
 
   const handleAddBtnClick = () => {
     const sharedId = crypto.randomUUID()
@@ -29,26 +18,12 @@ function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesDat
     };
     
     onAddNode(newNodeData)
-    console.log(`sharedId is ${sharedId}`)
-    console.info(experiencesData)
-
-    setInputContainerList(prevContainers => ([
-      ...prevContainers,
-      <InputContainer 
-      key={sharedId}
-      sharedId={sharedId}
-      section={title}
-      onChange={onChange}
-      onRemoveNode={onRemoveNode}
-      data={experiencesData} 
-      />
-    ]))
   };
 
   return (
     <section className={classes}>
       <h2 className="title">{title}</h2>
-      {inputContainerList}
+      {children}
       <button className="btn add-more" onClick={handleAddBtnClick}>
         Add +
       </button>

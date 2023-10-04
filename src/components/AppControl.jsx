@@ -4,6 +4,7 @@ import SidebarProfile from "./SidebarProfile.jsx";
 import SidebarSection from './SidebarSection.jsx'
 import OutputArea from './OutputArea.jsx'
 import OutputExperience from "./OutputExperience";
+import InputContainer from "./InputContainer";
 import Header from "./Header.jsx"
 import Icon from './Icon.jsx'
 import '../index.css'
@@ -12,37 +13,36 @@ import OutputProfile from './OutputProfile.jsx'
 
 export function AppControl () {
 
-  const handleAddExperienceNode = (newNodeData) => [
-    setExperiencesData((prevExperiences) => ({
-      ...prevExperiences,
-      [newNodeData.sharedId]: {
-        ...newNodeData
-      },
-    }))
-  ];
-
   const handleProfileChange = (key, value) => {
     setResumeProfileData((prevState) => ({
       ...prevState,
       [key]: value,
     }));
   };
+
+  const handleAddExperienceNode = (newNodeData) => [
+    setExperiencesData((prevExperiences) => ({
+      ...prevExperiences,
+      newNodeData
+    }))
+  ];
   
   const handleExperienceChange = (sharedId, key, value) => {
-  
-    setExperiencesData((prevExperiencesData) => (
+    setExperiencesData((prevExperiencesData) => ([
       {
-      ...prevExperiencesData,
-      [sharedId]: {
-        ...prevExperiencesData[sharedId],
-        [key]: value,
-      },
-    }));
+        ...prevExperiencesData,
+        [sharedId]: {
+          ...prevExperiencesData[sharedId],
+          [key]: value,
+        },
+      }
+    ]));
   };
 
   const handleRemoveExperienceNode = (sharedId) => {
-    const { [sharedId]: removedNode, ...restExperiencesData } = experiencesData;
-    setExperiencesData(restExperiencesData);
+    setExperiencesData(oldValues => {
+      return oldValues.filter(exp => exp.sharedId !== sharedId)
+    })
   };
 
   const [resumeProfileData, setResumeProfileData] = useState({
@@ -54,13 +54,29 @@ export function AppControl () {
   
   const [experiencesData, setExperiencesData] = useState([
     {
-      sharedId: 0,
+      sharedId: 1,
       job_title: "Regional Manager",
       company: "Dunder Mifflin",
       start_date: "2005-05-13",
       worked_until: "2013-07-21",
       job_description: 'Somehow I manage.'
-    } 
+    },
+    {
+      sharedId: 2,
+      job_title: "Documentation Coordinator",
+      company: "Company Inc",
+      start_date: "2013-05-13",
+      worked_until: "2017-07-21",
+      job_description: 'And we danced, and we cried!'
+    },
+    {
+      sharedId: 3,
+      job_title: "Teaching Assistant",
+      company: "School Uni",
+      start_date: "2007-05-13",
+      worked_until: "2011-07-21",
+      job_description: "We learned about all the ways we wouldn't do work in the real world."
+    }
   ]); // State for storing experience nodes
   
   return(
@@ -75,11 +91,14 @@ export function AppControl () {
         <SidebarSection
           title="Experience"
           classes="sidebar-section"
-          onChange={handleExperienceChange}
           onAddNode={handleAddExperienceNode} // Pass the function to add nodes
-          onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
-          experiencesData={experiencesData}
-        />
+        >
+          <InputContainer
+            section="Experience"
+            onChange={handleExperienceChange}
+            onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
+            data={experiencesData}/>
+        </SidebarSection>
       
       </Sidebar>
       <OutputArea>
