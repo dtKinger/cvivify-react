@@ -2,7 +2,7 @@ import React, { Children, useState } from 'react';
 import InputContainer from './InputContainer.jsx'
 import '../styles/Sidebar.css';
 
-function SidebarSection({ onRemoveNode, onChange, title, classes, experiencesData, onAddNode, children }) {
+function SidebarSection({ title, classes, onAddNode, children }) {
   const sharedId = crypto.randomUUID()
 
   const handleAddBtnClick = () => {

@@ -20,12 +20,12 @@ export function AppControl () {
     }));
   };
 
-  const handleAddExperienceNode = (newNodeData) => [
-    setExperiencesData((prevExperiences) => ({
+  const handleAddExperienceNode = (newNodeData) => {
+    setExperiencesData((prevExperiences) => ([
       ...prevExperiences,
       newNodeData
-    }))
-  ];
+    ]))
+  };
   
   const handleExperienceChange = (sharedId, key, value) => {
     setExperiencesData((prevExperiencesData) => ([
