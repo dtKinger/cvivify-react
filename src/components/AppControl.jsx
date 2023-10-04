@@ -28,15 +28,18 @@ export function AppControl () {
   };
   
   const handleExperienceChange = (sharedId, key, value) => {
-    setExperiencesData((prevExperiencesData) => ([
-      {
-        ...prevExperiencesData,
-        [sharedId]: {
-          ...prevExperiencesData[sharedId],
-          [key]: value,
-        },
-      }
-    ]));
+    setExperiencesData((prevExperiences) =>
+      prevExperiences.map((object) => {
+        if (object.sharedId === sharedId) {
+          // Create a new object with the updated property
+          return {
+            ...object,
+            [key]: value,
+          };
+        }
+        return object; // Return the original object if not a match
+      })
+    );
   };
 
   const handleRemoveExperienceNode = (sharedId) => {
