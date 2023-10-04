@@ -31,13 +31,12 @@ export function AppControl () {
     setExperiencesData((prevExperiences) =>
       prevExperiences.map((object) => {
         if (object.sharedId === sharedId) {
-          // Create a new object with the updated property
           return {
             ...object,
             [key]: value,
           };
         }
-        return object; // Return the original object if not a match
+        return object;
       })
     );
   };
@@ -94,12 +93,12 @@ export function AppControl () {
         <SidebarSection
           title="Experience"
           classes="sidebar-section"
-          onAddNode={handleAddExperienceNode} // Pass the function to add nodes
+          onAddNode={handleAddExperienceNode} 
         >
           <InputContainer
             section="Experience"
             onChange={handleExperienceChange}
-            onRemoveNode={handleRemoveExperienceNode} // Pass the function to remove nodes
+            onRemoveNode={handleRemoveExperienceNode}
             data={experiencesData}/>
         </SidebarSection>
       

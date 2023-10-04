@@ -29,8 +29,7 @@ function SidebarProfile ({title, classes, data, onChange}) {
           minrange="2"
           maxrange="30"
           value={data.professional_name}
-          onChange={(e) => handleChange("professional_name", e.target.value)} // This controls my input
-          // using the helper function handleChange which takes any prop as a key, then sets value
+          onChange={(e) => handleChange("professional_name", e.target.value)} 
         />
         <label className="form-label form-label__email" htmlFor="email">Email: </label>
         <input

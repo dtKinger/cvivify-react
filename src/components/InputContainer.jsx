@@ -9,11 +9,10 @@ const InputContainer = ({ section, data, onChange, onRemoveNode }) => {
 
   const handleInputChange = (sharedId, key, value) => {
     console.log(sharedId)
-    onChange(sharedId, key, value); // Call the parent onChange to update AppControl state
+    onChange(sharedId, key, value);
   };
 
   const handleRemoveInput = (sharedId) => {
-    // Remove this node by calling the parent's removal function
     onRemoveNode(sharedId);
   };
 
@@ -42,7 +41,6 @@ const InputContainer = ({ section, data, onChange, onRemoveNode }) => {
         type="text"
         value={node.job_title}
         onChange={(e) => handleInputChange(node.sharedId, "job_title", e.target.value)}
-        // using the helper function handleChange which takes any prop as a key, then sets value
       />
       <label className="form-label form-label__start-date" htmlFor={`${section}-start-date-${node.sharedId}`}>
         From:

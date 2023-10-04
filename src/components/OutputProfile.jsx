@@ -1,7 +1,6 @@
 import '../styles/OutputArea.css'
 
 function OutputProfile({ data }) {
-  // Use the data received from props, with defaults
   const {
     professional_name,
     phone_number,
