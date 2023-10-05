@@ -22,7 +22,7 @@ const InputContainer = ({ section, data, onChange, onRemoveNode }) => {
       <button className="btn delete-btn" onClick={(e) => handleRemoveInput(node.sharedId)}>
         Remove
       </button>
-      <label className="form-label form-label__company" htmlFor={`${section}-company-${node.sharedId}`}>Company: </label>
+      <label className="form-label form-label__company" htmlFor={`${section}-company-${node.sharedId}`}>Institution: </label>
       <input 
         id={`${section}-company-${node.sharedId}`}
         className="form-input form-input__company"

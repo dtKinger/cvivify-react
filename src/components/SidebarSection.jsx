@@ -11,7 +11,7 @@ function SidebarSection({ title, classes, onAddNode, children }) {
     let newNodeData = {
       sharedId: sharedId,
       job_title: "Your Role",
-      company: "Your Employer",
+      company: "Institution",
       start_date: "From when",
       worked_until: "when?",
       job_description: "Tell us about it."

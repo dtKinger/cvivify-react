@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/OutputArea.css'
 
-function OutputExperience({ experiencesArray }) {
+function OutputExperience({ experiencesArray, section }) {
 
   const ListOutputExperiences = experiencesArray.map((node) => (
       <div key={node.sharedId} section-id={node.sharedId} className="experience-node">
@@ -19,7 +19,7 @@ function OutputExperience({ experiencesArray }) {
   
   return (
     <div className="output-component">
-      <h2>Experience</h2>
+      <h2>{section}</h2>
       {ListOutputExperiences}
     </div>
   );
