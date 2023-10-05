@@ -33,6 +33,13 @@ export function AppControl () {
       newNodeData
     ]))
   };
+
+  const handleAddOtherNode = (newNodeData) => {
+    setOtherData((prevOthers) => ([
+      ...prevOthers,
+      newNodeData
+    ]))
+  };
   
   const handleExperienceChange = (sharedId, key, value) => {
     setExperiencesData((prevExperiences) =>
@@ -62,6 +69,20 @@ export function AppControl () {
     );
   };
 
+  const handleOtherChange = (sharedId, key, value) => {
+    setOtherData((prevOthers) =>
+      prevOthers.map((object) => {
+        if (object.sharedId === sharedId) {
+          return {
+            ...object,
+            [key]: value,
+          };
+        }
+        return object;
+      })
+    );
+  };
+
   const handleRemoveExperienceNode = (sharedId) => {
     setExperiencesData(oldValues => {
       return oldValues.filter(exp => exp.sharedId !== sharedId)
@@ -70,6 +91,12 @@ export function AppControl () {
 
   const handleRemoveEducationNode = (sharedId) => {
     setEducationData(oldValues => {
+      return oldValues.filter(exp => exp.sharedId !== sharedId)
+    })
+  };
+
+  const handleRemoveOtherNode = (sharedId) => {
+    setOtherData(oldValues => {
       return oldValues.filter(exp => exp.sharedId !== sharedId)
     })
   };
@@ -96,10 +123,21 @@ export function AppControl () {
     {
       sharedId: 0,
       job_title: "Bachelor of Commerce",
-      company: "Herbalife",
+      company: "Pyramid Scheme",
       start_date: "2001-05-13",
       worked_until: "2005-02-12",
-      job_description: "In his real-world MBA, Michael moved product and recruits juniors to move more product and recruit more junior to move more... etc. etc..."
+      job_description: `In his real-world undergraduate degree, Michael moved product and recruited juniors to move more product and recruit more juniors to move even more... etc. etc. He worked really hard and always satisfied the customers. ("...That's what she said!")`
+    }
+  ]);
+
+  const [otherData, setOtherData] = useState([
+    {
+      sharedId: 0,
+      job_title: "Run for Rabies",
+      company: "Dunder Mifflin",
+      start_date: "2014-06-10",
+      worked_until: "2014-06-10",
+      job_description: `Michael loaded up on carbohydrates minutes before a 5km charity run.`
     }
   ]);
   
@@ -135,8 +173,20 @@ export function AppControl () {
             data={educationData}
           />
         </SidebarSection>
-      
+        <SidebarSection
+          title="Other"
+          classes="sidebar-section"
+          onAddNode={handleAddOtherNode}
+        >
+          <InputContainer
+            section="Other"
+            onChange={handleOtherChange}
+            onRemoveNode={handleRemoveOtherNode}
+            data={otherData}
+          />
+        </SidebarSection>
       </Sidebar>
+
       <OutputArea>
         <Header>
           <Icon classes="icon icon__medium" source={downloadPDF} alt="Download as PDF icon" text="Print/Preview"/>
@@ -144,6 +194,7 @@ export function AppControl () {
         <OutputProfile data={resumeProfileData} />
         <OutputExperience section="Experience" experiencesArray={Object.values(experiencesData)} /> 
         <OutputExperience section="Education" experiencesArray={Object.values(educationData)} />
+        <OutputExperience section="Other" experiencesArray={Object.values(otherData)} />
       </OutputArea>
     </>
     )

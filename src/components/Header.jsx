@@ -11,7 +11,7 @@ function Header({children}) {
             <span className="mini-reaction">
               <img src={reactLogo} className="logo react mini-reaction" alt="React logo" />
             </span>
-            <span className="smaller-header">Reactive CV</span>
+            <span className="smaller-header">My Reactive CV</span>
           </h1>
       </div>
       {children}
