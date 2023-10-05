@@ -5,20 +5,21 @@ function OutputExperience({ experiencesArray }) {
 
   const ListOutputExperiences = experiencesArray.map((node) => (
       <div key={node.sharedId} section-id={node.sharedId} className="experience-node">
-        <h2 className="company-name"><span className="labels">Employer: </span>{node.company}</h2>
-        <h3 className="job-title"><span className="labels">Role: </span>{node.job_title}</h3>
+        <h3 className="job-title">{node.job_title}</h3>
+        <p className="company-name">{node.company}</p>
         <div className="job-dates">
-          <span className="start-date"><span className="labels">From: </span>{node.start_date} -</span>
-          <span className="end-date"><span className="labels">Until: </span>{node.worked_until}</span>
+          <span className="start-date">{node.start_date} to </span>
+          <span className="end-date">&nbsp;{node.worked_until}</span>
         </div>
         <div className="profile-header__mission">
-          <p className="job-description"><span className="labels">Description: </span>{node.job_description}</p>
+          <p className="job-description">{node.job_description}</p>
         </div>
       </div>
     ))
   
   return (
     <div className="output-component">
+      <h2>Experience</h2>
       {ListOutputExperiences}
     </div>
   );

@@ -56,30 +56,14 @@ export function AppControl () {
   
   const [experiencesData, setExperiencesData] = useState([
     {
-      sharedId: 1,
+      sharedId: 0,
       job_title: "Regional Manager",
       company: "Dunder Mifflin",
       start_date: "2005-05-13",
       worked_until: "2013-07-21",
-      job_description: 'Somehow I manage.'
-    },
-    {
-      sharedId: 2,
-      job_title: "Documentation Coordinator",
-      company: "Company Inc",
-      start_date: "2013-05-13",
-      worked_until: "2017-07-21",
-      job_description: 'And we danced, and we cried!'
-    },
-    {
-      sharedId: 3,
-      job_title: "Teaching Assistant",
-      company: "School Uni",
-      start_date: "2007-05-13",
-      worked_until: "2011-07-21",
-      job_description: "We learned about all the ways we wouldn't do work in the real world."
+      job_description: "While overseeing the regional office in Scranton, PA, Michael was responsible for leading Dunder Mifflin's team. His most notable achievements were using Dundie awards to motivate staff and quitting his job to start a competing business only to be rehired through an acquisition."
     }
-  ]); // State for storing experience nodes
+  ]);
   
   return(
     <>

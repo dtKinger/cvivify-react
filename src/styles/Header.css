@@ -65,3 +65,7 @@
   padding: 0px 0px;
   transform: translateY(20px);
 }
+
+.smaller-header{
+  font-size: 0.6em;
+}

@@ -12,8 +12,8 @@ function SidebarSection({ title, classes, onAddNode, children }) {
       sharedId: sharedId,
       job_title: "Your Role",
       company: "Your Employer",
-      start_date: "",
-      worked_until: "",
+      start_date: "From when",
+      worked_until: "when?",
       job_description: "Tell us about it."
     };
     
